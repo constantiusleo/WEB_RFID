@@ -124,38 +124,21 @@
       <div class="col-lg-12">
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Master Data</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Inventory</h6>
           </div>
           <div class="table-responsive p-3">
             <table class="table align-items-center table-flush" id="dataTable">
               <thead class="thead-light">
                 <tr>
-                  <th>EPC</th>
                   <th>Type</th>
-                  <th>Customer</th>
-                  <th>Waktu</th>
-                  <th>Status</th>
+                  <th>Total</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>EPC</th>
-                  <th>Type</th>
-                  <th>Customer</th>
-                  <th>Waktu</th>
-                  <th>Status</th>
-                </tr>
-              </tfoot>
               <tbody>
-                <?php foreach ($data as $value) { ?>
-                  <tr>
-                    <td><?php echo $value->EPC; ?></td>
-                    <td><?php echo $value->Type; ?></td>
-                    <td><?php echo $value->Customer; ?></td>
-                    <td><?php echo $value->Last_Seen; ?></td>
-                    <td><?php echo $value->Status; ?></td>
-                  </tr>
-                <?php } ?>
+                <tr>
+                  <td><?php echo 'PALET_HIJAU'; ?></td>
+                  <td><?php echo $total; ?></td>
+                </tr>
               </tbody>
             </table>
           </div>

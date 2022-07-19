@@ -9,7 +9,7 @@
   <li class="nav-item active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
       <i class="fas fa-fw fa-table"></i>
-      <span>Tables</span>
+      <span>Pages</span>
     </a>
     <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
