@@ -4,8 +4,6 @@
     <h1 class="h3 mb-0 text-gray-800">RFID Tag</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="./">Home</a></li>
-      <li class="breadcrumb-item">Tables</li>
-      <li class="breadcrumb-item active" aria-current="page">RFID Tag</li>
     </ol>
   </div>
   <div class="row mb-3">
