@@ -138,6 +138,12 @@
                 <td><?php echo $box_331_available ?></td>
               </tr>
             </tbody>
+            </tfoot>
+              <tr>
+                <th>Total</th>
+                <th><?php echo $total_available ?></th>
+              </tr>
+            </tfoot> 
           </table>
         </div>
       </div>
@@ -172,6 +178,12 @@
                 <td><?php echo $box_331_in_delivery ?></td>
               </tr>
             </tbody>
+            </tfoot>
+              <tr>
+                <th>Total</th>
+                <th><?php echo $total_delivery ?></th>
+              </tr>
+            </tfoot>           
           </table>
         </div>
       </div>
