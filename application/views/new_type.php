@@ -112,7 +112,7 @@
                 <div class="card-body" bis_skin_checked="1">
                   <form>
                     <div class="form-group" bis_skin_checked="1">
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
                     </div>
                     <div class="form-group" bis_skin_checked="1">
                     </div>
