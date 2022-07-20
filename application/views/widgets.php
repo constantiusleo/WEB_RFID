@@ -130,14 +130,22 @@
             <table class="table align-items-center table-flush" id="dataTable">
               <thead class="thead-light">
                 <tr>
-                  <th>Type</th>
+                  <th>Data</th>
                   <th>Total</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><?php echo 'PALET_HIJAU'; ?></td>
-                  <td><?php echo $total; ?></td>
+                  <td><?php echo '# of All Tags' ?></td>
+                  <td><?php echo $total ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo '# of Available Tags' ?></td>
+                  <td><?php echo $total_available ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo '# of In Delivery Tags' ?></td>
+                  <td><?php echo $total_delivery ?></td>
                 </tr>
               </tbody>
             </table>
