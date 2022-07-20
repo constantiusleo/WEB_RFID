@@ -86,6 +86,6 @@ class User_m extends CI_Model
     {
         $this->db->select('Type');
         $this->db->distinct();
-        return $this->db->get('user');
+        return $this->db->get($this->table);
     }
 }

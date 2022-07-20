@@ -13,6 +13,7 @@ class input_new_type extends CI_Controller
 
     public function index()
     {
+        $data['data'] = $this->User_m->distinct_type()->result();
         $data['content'] = 'new_type';
         $this->load->view($this->layout, $data);
     }

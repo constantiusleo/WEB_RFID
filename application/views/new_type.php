@@ -74,3 +74,50 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+    <!-- Datatables Master Data -->
+    <div class="col">
+      <div class="card mb-4">
+
+        <div class="table-responsive p-3">
+          <table class="table align-items-center table-flush" id="dataTable">
+            <thead class="thead-light">
+              <tr>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+              </tr>
+            </tfoot>
+            <tbody>
+              <?php foreach ($data as $value) { ?>
+                <tr>
+                  <td><?php echo $value->Type; ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+              <!-- Form Basic -->
+              <div class="card mb-4" bis_skin_checked="1">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" bis_skin_checked="1">
+                  <h6 class="m-0 font-weight-bold text-primary">Form Type Baru</h6>
+                </div>
+                <div class="card-body" bis_skin_checked="1">
+                  <form>
+                    <div class="form-group" bis_skin_checked="1">
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
+                    </div>
+                    <div class="form-group" bis_skin_checked="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+        </div>
