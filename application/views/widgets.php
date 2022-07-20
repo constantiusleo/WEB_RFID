@@ -124,7 +124,7 @@
       <div class="col-lg-12">
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Inventory</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Number of Tags</h6>
           </div>
           <div class="table-responsive p-3">
             <table class="table align-items-center table-flush" id="dataTable">
@@ -153,3 +153,77 @@
         </div>
       </div>
     </div>
+
+    <!-- Row -->
+    <div class="row">
+      <!-- Datatables -->
+      <div class="col-lg-12">
+        <div class="card mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Available Inventory</h6>
+          </div>
+          <div class="table-responsive p-3">
+            <table class="table align-items-center table-flush" id="dataTable">
+              <thead class="thead-light">
+                <tr>
+                  <th>Type</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?php echo 'PALET HIJAU' ?></td>
+                  <td><?php echo $palet_hijau_available ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'PALET BIRU' ?></td>
+                  <td><?php echo $palet_biru_available ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'BOX 331' ?></td>
+                  <td><?php echo $box_331_available ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row -->
+    <div class="row">
+      <!-- Datatables -->
+      <div class="col-lg-12">
+        <div class="card mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">In Delivery</h6>
+          </div>
+          <div class="table-responsive p-3">
+            <table class="table align-items-center table-flush" id="dataTable">
+              <thead class="thead-light">
+                <tr>
+                  <th>Type</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?php echo 'PALET HIJAU' ?></td>
+                  <td><?php echo $palet_hijau_in_delivery ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'PALET BIRU' ?></td>
+                  <td><?php echo $palet_biru_in_delivery ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'BOX 331' ?></td>
+                  <td><?php echo $box_331_in_delivery ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
