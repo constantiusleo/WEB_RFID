@@ -7,14 +7,21 @@
   </a>
   <hr class="sidebar-divider my-0">
   <li class="nav-item active">
+    <a class="nav-link" href="<?= base_url('#'); ?>">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span></a>
+  </li>
+  <hr class="sidebar-divider my-0">
+  <li class="nav-item active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
       <i class="fas fa-fw fa-table"></i>
-      <span>Pages</span>
+      <span>Input</span>
     </a>
     <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Tables</h6>
-        <a class="collapse-item active" href="#">RFID Tag</a>
+        <h6 class="collapse-header">Pages</h6>
+        <a class="collapse-item active" href="<?= base_url('input_new_type'); ?>">Input New Type</a>
+        <a class="collapse-item active" href="<?= base_url('input_new_tag'); ?>">Input New Tag</a>
       </div>
     </div>
   </li>
