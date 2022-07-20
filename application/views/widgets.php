@@ -73,161 +73,154 @@
         </div>
       </div>
     </div>
-    
+  </div>
+  <!-- Row -->
+  <div class="row">
+    <!-- Datatables Number of Tags -->
+    <div class="col">
+      <div class="card mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Number of Tags</h6>
+        </div>
+        <div class="table-responsive p-3">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>Data</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo '# of All Tags' ?></td>
+                <td><?php echo $total ?></td>
+              </tr>
+              <tr>
+                <td><?php echo '# of Available Tags' ?></td>
+                <td><?php echo $total_available ?></td>
+              </tr>
+              <tr>
+                <td><?php echo '# of In Delivery Tags' ?></td>
+                <td><?php echo $total_delivery ?></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <!-- Row -->
-    <div class="row">
-      <!-- Datatables Master Data -->
-      <div class="col-lg-12">
-        <div class="card mb-4">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Master Data</h6>
-          </div>
-          <div class="table-responsive p-3">
-            <table class="table align-items-center table-flush" id="dataTable">
-              <thead class="thead-light">
-                <tr>
-                  <th>EPC</th>
-                  <th>Type</th>
-                  <th>Customer</th>
-                  <th>Waktu</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>EPC</th>
-                  <th>Type</th>
-                  <th>Customer</th>
-                  <th>Waktu</th>
-                  <th>Status</th>
-                </tr>
-              </tfoot>
-              <tbody>
+    <!-- Datatables Available Inventory -->
+    <div class="col">
+      <div class="card mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Available Inventory</h6>
+        </div>
+        <div class="table-responsive p-3">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>Type</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo 'PALET HIJAU' ?></td>
+                <td><?php echo $palet_hijau_available ?></td>
+              </tr>
+              <tr>
+                <td><?php echo 'PALET BIRU' ?></td>
+                <td><?php echo $palet_biru_available ?></td>
+              </tr>
+              <tr>
+                <td><?php echo 'BOX 331' ?></td>
+                <td><?php echo $box_331_available ?></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row -->
+    <!-- Datatables In Delivery -->
+    <div class="col">
+      <div class="card mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">In Delivery</h6>
+        </div>
+        <div class="table-responsive p-3">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>Type</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo 'PALET HIJAU' ?></td>
+                <td><?php echo $palet_hijau_in_delivery ?></td>
+              </tr>
+              <tr>
+                <td><?php echo 'PALET BIRU' ?></td>
+                <td><?php echo $palet_biru_in_delivery ?></td>
+              </tr>
+              <tr>
+                <td><?php echo 'BOX 331' ?></td>
+                <td><?php echo $box_331_in_delivery ?></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Datatables Master Data -->
+    <div class="col">
+      <div class="card mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Master Data</h6>
+        </div>
+        <div class="table-responsive p-3">
+          <table class="table align-items-center table-flush" id="dataTable">
+            <thead class="thead-light">
+              <tr>
+                <th>EPC</th>
+                <th>Type</th>
+                <th>Customer</th>
+                <th>Waktu</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>EPC</th>
+                <th>Type</th>
+                <th>Customer</th>
+                <th>Waktu</th>
+                <th>Status</th>
+              </tr>
+            </tfoot>
+            <tbody>
               <?php foreach ($data as $value) { ?>
-                  <tr>
-                    <td><?php echo $value->EPC; ?></td>
-                    <td><?php echo $value->Type; ?></td>
-                    <td><?php echo $value->Customer; ?></td>
-                    <td><?php echo $value->Last_Seen; ?></td>
-                    <td><?php if($value->Status == 'AVAILABLE'){ ?>
-                    <span class="badge badge-success">AVAILABLE</span>
-                    <?php }else if($value->Status == 'IN_DELIVERY'){ ?>
+                <tr>
+                  <td><?php echo $value->EPC; ?></td>
+                  <td><?php echo $value->Type; ?></td>
+                  <td><?php echo $value->Customer; ?></td>
+                  <td><?php echo $value->Last_Seen; ?></td>
+                  <td><?php if ($value->Status == 'AVAILABLE') { ?>
+                      <span class="badge badge-success">AVAILABLE</span>
+                    <?php } else if ($value->Status == 'IN_DELIVERY') { ?>
                       <span class="badge badge-warning">IN_DELIVERY</span>
-                    <?php } ?></td>
-                    </tr>
-                <?php } ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Row-->
-
-    <!-- Row -->
-    <div class="row">
-      <!-- Datatables Number of Tags -->
-      <div class="col-lg-12">
-        <div class="card mb-4">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Number of Tags</h6>
-          </div>
-          <div class="table-responsive p-3">
-            <table class="table align-items-center table-flush" id="dataTable">
-              <thead class="thead-light">
-                <tr>
-                  <th>Data</th>
-                  <th>Total</th>
+                    <?php } ?>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><?php echo '# of All Tags' ?></td>
-                  <td><?php echo $total ?></td>
-                </tr>
-                <tr>
-                  <td><?php echo '# of Available Tags' ?></td>
-                  <td><?php echo $total_available ?></td>
-                </tr>
-                <tr>
-                  <td><?php echo '# of In Delivery Tags' ?></td>
-                  <td><?php echo $total_delivery ?></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row -->
-    <div class="row">
-      <!-- Datatables Available Inventory -->
-      <div class="col-lg-12">
-        <div class="card mb-4">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Available Inventory</h6>
-          </div>
-          <div class="table-responsive p-3">
-            <table class="table align-items-center table-flush" id="dataTable">
-              <thead class="thead-light">
-                <tr>
-                  <th>Type</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><?php echo 'PALET HIJAU' ?></td>
-                  <td><?php echo $palet_hijau_available ?></td>
-                </tr>
-                <tr>
-                  <td><?php echo 'PALET BIRU' ?></td>
-                  <td><?php echo $palet_biru_available ?></td>
-                </tr>
-                <tr>
-                  <td><?php echo 'BOX 331' ?></td>
-                  <td><?php echo $box_331_available ?></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row -->
-    <div class="row">
-      <!-- Datatables In Delivery -->
-      <div class="col-lg-12">
-        <div class="card mb-4">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">In Delivery</h6>
-          </div>
-          <div class="table-responsive p-3">
-            <table class="table align-items-center table-flush" id="dataTable">
-              <thead class="thead-light">
-                <tr>
-                  <th>Type</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><?php echo 'PALET HIJAU' ?></td>
-                  <td><?php echo $palet_hijau_in_delivery ?></td>
-                </tr>
-                <tr>
-                  <td><?php echo 'PALET BIRU' ?></td>
-                  <td><?php echo $palet_biru_in_delivery ?></td>
-                </tr>
-                <tr>
-                  <td><?php echo 'BOX 331' ?></td>
-                  <td><?php echo $box_331_in_delivery ?></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+              <?php } ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
