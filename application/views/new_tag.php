@@ -74,3 +74,27 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <!-- Datatables Master Data -->
+        <div class="col">
+            <div class="card mb-4">
+                <div class="table-responsive p-3">
+                    <table class="table table-bordered align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope='col'>No</th>
+                                <th scope='col-7'>EPC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>0C00 2802 9C13 0124 9000 3B3B 2C01</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

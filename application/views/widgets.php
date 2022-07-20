@@ -78,30 +78,36 @@
     <div class="col">
       <div class="card mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Number of Tags</h6>
+          <h6 class="m-0 font-weight-bold text-primary">All Tags</h6>
         </div>
         <div class="table-responsive p-3">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th>Data</th>
+                <th>Type</th>
                 <th>Total</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><?php echo '# of All Tags' ?></td>
-                <td><?php echo $total ?></td>
+                <td><?php echo 'PALET HIJAU' ?></td>
+                <td><?php echo $palet_hijau ?></td>
               </tr>
               <tr>
-                <td><?php echo '# of Available Tags' ?></td>
-                <td><?php echo $total_available ?></td>
+                <td><?php echo 'PALET BIRU' ?></td>
+                <td><?php echo $palet_biru ?></td>
               </tr>
               <tr>
-                <td><?php echo '# of In Delivery Tags' ?></td>
-                <td><?php echo $total_delivery ?></td>
+                <td><?php echo 'BOX 331' ?></td>
+                <td><?php echo $box_331 ?></td>
               </tr>
             </tbody>
+            </tfoot>
+            <tr>
+              <th>Total</th>
+              <th><?php echo $total ?></th>
+            </tr>
+            </tfoot>
           </table>
         </div>
       </div>
@@ -137,11 +143,11 @@
               </tr>
             </tbody>
             </tfoot>
-              <tr>
-                <th>Total</th>
-                <th><?php echo $total_available ?></th>
-              </tr>
-            </tfoot> 
+            <tr>
+              <th>Total</th>
+              <th><?php echo $total_available ?></th>
+            </tr>
+            </tfoot>
           </table>
         </div>
       </div>
@@ -177,11 +183,11 @@
               </tr>
             </tbody>
             </tfoot>
-              <tr>
-                <th>Total</th>
-                <th><?php echo $total_delivery ?></th>
-              </tr>
-            </tfoot>           
+            <tr>
+              <th>Total</th>
+              <th><?php echo $total_delivery ?></th>
+            </tr>
+            </tfoot>
           </table>
         </div>
       </div>

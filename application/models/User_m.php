@@ -34,6 +34,27 @@ class User_m extends CI_Model
         return $this->db->count_all_results();
     }
 
+    public function count_palet_biru()
+    {
+        $this->db->like('Type', 'PALET_BIRU');
+        $this->db->from('user');
+        return $this->db->count_all_results();
+    }
+
+    public function count_palet_hijau()
+    {
+        $this->db->like('Type', 'PALET_HIJAU');
+        $this->db->from('user');
+        return $this->db->count_all_results();
+    }
+
+    public function count_box_331()
+    {
+        $this->db->like('Type', 'BOX_331');
+        $this->db->from('user');
+        return $this->db->count_all_results();
+    }
+
     public function count_palet_biru_available()
     {
         $this->db->like('Type', 'PALET_BIRU');
