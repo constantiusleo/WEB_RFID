@@ -103,14 +103,18 @@
                 </tr>
               </tfoot>
               <tbody>
-                <?php foreach ($data as $value) { ?>
+              <?php foreach ($data as $value) { ?>
                   <tr>
                     <td><?php echo $value->EPC; ?></td>
                     <td><?php echo $value->Type; ?></td>
                     <td><?php echo $value->Customer; ?></td>
                     <td><?php echo $value->Last_Seen; ?></td>
-                    <td><?php echo $value->Status; ?></td>
-                  </tr>
+                    <td><?php if($value->Status == 'AVAILABLE'){ ?>
+                    <span class="badge badge-success">AVAILABLE</span>
+                    <?php }else if($value->Status == 'IN_DELIVERY'){ ?>
+                      <span class="badge badge-warning">IN_DELIVERY</span>
+                    <?php } ?></td>
+                    </tr>
                 <?php } ?>
               </tbody>
             </table>
