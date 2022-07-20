@@ -1,3 +1,4 @@
+<!-- Container Fluid-->
 <div class="container-fluid" id="container-wrapper">
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">RFID Tag</h1>
@@ -8,7 +9,7 @@
     </ol>
   </div>
   <div class="row mb-3">
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- PALET BIRU Available Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -24,7 +25,7 @@
         </div>
       </div>
     </div>
-    <!-- Earnings (Annual) Card Example -->
+    <!-- PALET HIJAU Available Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -40,7 +41,7 @@
         </div>
       </div>
     </div>
-    <!-- New User Card Example -->
+    <!-- PALET BIRU Delivery Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -56,7 +57,7 @@
         </div>
       </div>
     </div>
-    <!-- Pending Requests Card Example -->
+    <!-- PALET HIJAU Delivery  Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -72,9 +73,10 @@
         </div>
       </div>
     </div>
+    
     <!-- Row -->
     <div class="row">
-      <!-- Datatables -->
+      <!-- Datatables Master Data -->
       <div class="col-lg-12">
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -120,11 +122,47 @@
 
     <!-- Row -->
     <div class="row">
-      <!-- Datatables -->
+      <!-- Datatables Number of Tags -->
       <div class="col-lg-12">
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Inventory</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Number of Tags</h6>
+          </div>
+          <div class="table-responsive p-3">
+            <table class="table align-items-center table-flush" id="dataTable">
+              <thead class="thead-light">
+                <tr>
+                  <th>Data</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?php echo '# of All Tags' ?></td>
+                  <td><?php echo $total ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo '# of Available Tags' ?></td>
+                  <td><?php echo $total_available ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo '# of In Delivery Tags' ?></td>
+                  <td><?php echo $total_delivery ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row -->
+    <div class="row">
+      <!-- Datatables Available Inventory -->
+      <div class="col-lg-12">
+        <div class="card mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Available Inventory</h6>
           </div>
           <div class="table-responsive p-3">
             <table class="table align-items-center table-flush" id="dataTable">
@@ -136,8 +174,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><?php echo 'PALET_HIJAU'; ?></td>
-                  <td><?php echo $total; ?></td>
+                  <td><?php echo 'PALET HIJAU' ?></td>
+                  <td><?php echo $palet_hijau_available ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'PALET BIRU' ?></td>
+                  <td><?php echo $palet_biru_available ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'BOX 331' ?></td>
+                  <td><?php echo $box_331_available ?></td>
                 </tr>
               </tbody>
             </table>
@@ -145,3 +191,41 @@
         </div>
       </div>
     </div>
+
+    <!-- Row -->
+    <div class="row">
+      <!-- Datatables In Delivery -->
+      <div class="col-lg-12">
+        <div class="card mb-4">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">In Delivery</h6>
+          </div>
+          <div class="table-responsive p-3">
+            <table class="table align-items-center table-flush" id="dataTable">
+              <thead class="thead-light">
+                <tr>
+                  <th>Type</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?php echo 'PALET HIJAU' ?></td>
+                  <td><?php echo $palet_hijau_in_delivery ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'PALET BIRU' ?></td>
+                  <td><?php echo $palet_biru_in_delivery ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo 'BOX 331' ?></td>
+                  <td><?php echo $box_331_in_delivery ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
