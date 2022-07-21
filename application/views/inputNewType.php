@@ -92,11 +92,11 @@
               <tr>
               </tr>
             </tfoot>
-            <tbody>
+            <tbody> 
               <?php foreach ($data as $value) { ?>
                 <tr>
                   <td><?php echo $value->Type; ?></td>
-                  <td><a href="#" class="btn btn-sm btn-danger text-right">Delete</a></td>
+                  <td><button class="btn btn-danger text-right">DELETE</button></td>
                 </tr>
               <?php } ?>
             </tbody>
