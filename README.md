@@ -1,6 +1,6 @@
 # Database Information:
 
-## 1. Master
+## 1. master
 
 Storing all RFiD and necessary data
 
