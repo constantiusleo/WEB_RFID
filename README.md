@@ -1,44 +1,23 @@
 # RuangAdmin
 
-RuangAdmin - Free Admin Control Panel Themes Based on Bootstrap 4
+Database Information:
 
--------------------
+## 1. Master
 
-**RuangAdmin** is responsive admin template. Based on Bootstrap 4 Framework. Highly customizable and easy to use. 
+Storing all RFiD and necessary data
 
-**You can review it on [RuangAdmin - Demo](https://indrijunanda.github.io/RuangAdmin/)**
+Column title:
 
-!["RuangAdmin Screenshot"](https://indrijunanda.github.io/RuangAdmin/img/screenshot/ss2.png "RuangAdmin Screenshot")
+1. EPC					varchar(128)
+2. Type					varchar(128)
+3. Customer			varchar(128)
+4. Last_Seen		DATE(current_timestamp)
+5. Status				varchar(128)
 
-## Contribution 
+## 2. type_table
 
-Here is how : 
+Storing types of boxes/palletes
 
-- Fork the repository
-- Clone with ```git clone https://github.com/indrijunanda/RuangAdmin.git```
-- Or Download zip
+Column title:
 
-
-## Integrated
-
-- **[CodeIgniter](https://github.com/Codeigniter-Template/Ruang-Admin-Template)** by Codeigniter Template
-- **[Laravel](https://github.com/putralangkat97/ruang-admin-laravel-6)** by putralangkat97
-
-
-## License
-
-RuangAdmin is an open source and licensed under **[MIT](http://opensource.org/licenses/MIT)**
-
-
-
--------------------
-### Cheers Up!
-
-*Happy Developing and Learning* 💪
-
-
-
-Regards 😁😁
-
-
-
+1. Type					varchar(128)
