@@ -114,7 +114,9 @@
                         </select>
                         <div class="form-group align-self-end" bis_skin_checked="1">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary text-right">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

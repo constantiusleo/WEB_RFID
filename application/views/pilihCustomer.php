@@ -86,7 +86,9 @@
                                 <?php } ?>
                             </select>
                         </div>
-                        <a class="btn btn-secondary" href="ScanRFID" role="button">Next</a>
+                        <div class="text-right">
+                            <a class="btn btn-primary btn-block" href="ScanRFID" role="button">Next</a>
+                        </div>
                     </form>
                 </div>
             </div>
