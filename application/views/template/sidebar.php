@@ -5,13 +5,19 @@
     </div>
     <div class="sidebar-brand-text mx-3">RFID</div>
   </a>
+
   <hr class="sidebar-divider my-0">
   <li class="nav-item active">
     <a class="nav-link" href="<?= base_url('#'); ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
-  <hr class="sidebar-divider my-0">
+
+  <li class="nav-item active">
+    <a class="nav-link" href="<?= base_url('ScanRFID'); ?>">
+      <i class="fab fa-fw fa-wpforms"></i>
+      <span>Scan RFID</span></a>
+  </li>
   <li class="nav-item active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
       <i class="fas fa-fw fa-table"></i>
