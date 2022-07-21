@@ -78,6 +78,10 @@
         <!--  Master Data -->
         <div class="col">
             <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" bis_skin_checked="1">
+                    <h6 class="m-0 font-weight-bold text-primary ">RFID READER</h6>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Start Scanning</button>
                 <div class="table-responsive p-3">
                     <table class="table table-bordered align-items-center table-flush">
                         <thead class="thead-light">
@@ -93,6 +97,25 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4" bis_skin_checked="1">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" bis_skin_checked="1">
+                    <h6 class="m-0 font-weight-bold text-primary ">RFID READER</h6>
+                </div>
+                <div class="card-body" bis_skin_checked="1">
+                    <form>
+                        <select class="form-control">
+                            <option>PALET HIJAU</option>
+                            <option>PALET BIRU</option>
+                            <option>BOX 331</option>
+                        </select>
+                        <div class="form-group align-self-end" bis_skin_checked="1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>

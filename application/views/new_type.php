@@ -1,81 +1,81 @@
 <!-- Container Fluid-->
 <div class="container-fluid" id="container-wrapper">
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Input New Type</h1>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./">Home</a></li>
-            <li class="breadcrumb-item">Input</li>
-            <li class="breadcrumb-item active" aria-current="page">New Type</li>
-        </ol>
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Input New Type</h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./">Home</a></li>
+      <li class="breadcrumb-item">Input</li>
+      <li class="breadcrumb-item active" aria-current="page">New Type</li>
+    </ol>
+  </div>
+  <div class="row mb-3">
+    <!-- PALET BIRU Available Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
+              <div class="h5 mb-0 font-weight-bold text-success mr-2">192</div>
+            </div>
+            <div class="col-auto">
+              <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row mb-3">
-        <!-- PALET BIRU Available Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
-                            <div class="h5 mb-0 font-weight-bold text-success mr-2">192</div>
-                        </div>
-                        <div class="col-auto">
-                            <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
-                        </div>
-                    </div>
-                </div>
+    <!-- PALET HIJAU Available Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Hijau</div>
+              <div class="h5 mb-0 font-weight-bold text-success mr-2">193</div>
             </div>
-        </div>
-        <!-- PALET HIJAU Available Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Hijau</div>
-                            <div class="h5 mb-0 font-weight-bold text-success mr-2">193</div>
-                        </div>
-                        <div class="col-auto">
-                            <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
-                        </div>
-                    </div>
-                </div>
+            <div class="col-auto">
+              <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
             </div>
+          </div>
         </div>
-        <!-- PALET BIRU Delivery Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
-                            <div class="h5 mb-0 mr-3 font-weight-bold text-warning mr-2">120</div>
-                        </div>
-                        <div class="col-auto">
-                            <img src="assets/img/truck.svg" alt="Bootstrap" width="32" height="32">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- PALET HIJAU Delivery  Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Hijau</div>
-                            <div class="h5 mb-0 font-weight-bold text-warning mr-2">133</div>
-                        </div>
-                        <div class="col-auto">
-                            <img src="assets/img/truck.svg" alt="Bootstrap" width="32" height="32">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <!-- PALET BIRU Delivery Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
+              <div class="h5 mb-0 mr-3 font-weight-bold text-warning mr-2">120</div>
+            </div>
+            <div class="col-auto">
+              <img src="assets/img/truck.svg" alt="Bootstrap" width="32" height="32">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PALET HIJAU Delivery  Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Hijau</div>
+              <div class="h5 mb-0 font-weight-bold text-warning mr-2">133</div>
+            </div>
+            <div class="col-auto">
+              <img src="assets/img/truck.svg" alt="Bootstrap" width="32" height="32">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="row">
+  <div class="row">
     <!-- Datatables Master Data -->
     <div class="col">
       <div class="card mb-4">
@@ -102,22 +102,22 @@
         </div>
       </div>
     </div>
-  </div>
+    <!-- Form Basic -->
 
-              <!-- Form Basic -->
-              <div class="card mb-4" bis_skin_checked="1">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" bis_skin_checked="1">
-                  <h6 class="m-0 font-weight-bold text-primary">Form Type Baru</h6>
-                </div>
-                <div class="card-body" bis_skin_checked="1">
-                  <form>
-                    <div class="form-group" bis_skin_checked="1">
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
-                    </div>
-                    <div class="form-group" bis_skin_checked="1">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-                </div>
-              </div>
+    <div class="col">
+      <div class="card mb-4" bis_skin_checked="1">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" bis_skin_checked="1">
+          <h6 class="m-0 font-weight-bold text-primary">Form Type Baru</h6>
         </div>
+        <div class="card-body" bis_skin_checked="1">
+          <form>
+            <div class="form-group" bis_skin_checked="1">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
+            </div>
+            <button type="submit" class="btn btn-primary text-right">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
