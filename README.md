@@ -1,6 +1,4 @@
-# RuangAdmin
-
-Database Information:
+# Database Information:
 
 ## 1. Master
 
