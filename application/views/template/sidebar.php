@@ -14,7 +14,7 @@
   </li>
 
   <li class="nav-item active">
-    <a class="nav-link" href="<?= base_url('ScanRFID'); ?>">
+    <a class="nav-link" href="<?= base_url('PilihCustomer'); ?>">
       <i class="fab fa-fw fa-wpforms"></i>
       <span>Scan RFID</span></a>
   </li>
@@ -26,8 +26,8 @@
     <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Pages</h6>
-        <a class="collapse-item active" href="<?= base_url('input_new_type'); ?>">Input New Type</a>
-        <a class="collapse-item active" href="<?= base_url('input_new_tag'); ?>">Input New Tag</a>
+        <a class="collapse-item active" href="<?= base_url('InputNewType'); ?>">Input New Type</a>
+        <a class="collapse-item active" href="<?= base_url('InputNewTag'); ?>">Input New Tag</a>
       </div>
     </div>
   </li>

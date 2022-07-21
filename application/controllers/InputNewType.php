@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class input_new_tag extends CI_Controller
+class InputNewType extends CI_Controller
 {
 
     public function __construct()
@@ -13,7 +13,8 @@ class input_new_tag extends CI_Controller
 
     public function index()
     {
-        $data['content'] = 'new_tag';
+        $data['data'] = $this->User_m->distinct_type()->result();
+        $data['content'] = 'inputNewType';
         $this->load->view($this->layout, $data);
     }
 }
