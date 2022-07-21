@@ -98,13 +98,11 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($data as $value) { ?>
-                                <tr>
-                                    <td><?php echo $value->EPC; ?></td>
-                                    <td><?php echo $value->Type; ?></td>
-                                    <td><?php echo $value->Last_Seen; ?></td>
-                                </tr>
-                            <?php } ?>
+                            <tr>
+                                <td><?php echo '0C00 2802 9C13 0124 9000 3B3B 2C01'; ?></td>
+                                <td><?php echo 'PALET_HIJAU'; ?></td>
+                                <td><?php echo '2022-07-19'; ?></td>
+                            </tr>
                         </tbody>
                     </table>
                     <div class="text-right">

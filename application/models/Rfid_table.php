@@ -1,9 +1,9 @@
 <?php
 
-class User_m extends CI_Model
+class Rfid_table extends CI_Model
 {
 
-    private $table = 'user';
+    private $table = 'master';
 
     public function __construct()
     {
@@ -23,35 +23,35 @@ class User_m extends CI_Model
     public function count_available()
     {
         $this->db->like('Status', 'AVAILABLE');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
     public function count_in_delivery()
     {
         $this->db->like('Status', 'IN_DELIVERY');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
     public function count_palet_biru()
     {
         $this->db->like('Type', 'PALET_BIRU');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
     public function count_palet_hijau()
     {
         $this->db->like('Type', 'PALET_HIJAU');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
     public function count_box_331()
     {
         $this->db->like('Type', 'BOX_331');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -59,7 +59,7 @@ class User_m extends CI_Model
     {
         $this->db->like('Type', 'PALET_BIRU');
         $this->db->like('Status', 'AVAILABLE');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -67,7 +67,7 @@ class User_m extends CI_Model
     {
         $this->db->like('Type', 'PALET_HIJAU');
         $this->db->like('Status', 'AVAILABLE');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -75,7 +75,7 @@ class User_m extends CI_Model
     {
         $this->db->like('Type', 'BOX_331');
         $this->db->like('Status', 'AVAILABLE');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -83,7 +83,7 @@ class User_m extends CI_Model
     {
         $this->db->like('Type', 'PALET_BIRU');
         $this->db->like('Status', 'IN_DELIVERY');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -91,7 +91,7 @@ class User_m extends CI_Model
     {
         $this->db->like('Type', 'PALET_HIJAU');
         $this->db->like('Status', 'IN_DELIVERY');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -99,7 +99,7 @@ class User_m extends CI_Model
     {
         $this->db->like('Type', 'BOX_331');
         $this->db->like('Status', 'IN_DELIVERY');
-        $this->db->from('user');
+        $this->db->from('master');
         return $this->db->count_all_results();
     }
 
@@ -115,10 +115,5 @@ class User_m extends CI_Model
         $this->db->select('Customer');
         $this->db->distinct();
         return $this->db->get($this->table);
-    }
-
-    function input_data($data, $table)
-    {
-        $this->db->insert($table, $data);
     }
 }

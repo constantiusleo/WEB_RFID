@@ -1,9 +1,9 @@
 <?php
 
-class Tambah_type extends CI_Model
+class Type_table extends CI_Model
 {
 
-    private $table = 'add_type';
+    private $table = 'Type_table';
 
     public function __construct()
     {
@@ -14,5 +14,4 @@ class Tambah_type extends CI_Model
     {
         return $this->db->get($this->table);
     }
-
 }
