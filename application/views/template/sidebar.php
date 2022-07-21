@@ -18,8 +18,6 @@
       <i class="fab fa-fw fa-wpforms"></i>
       <span>Scan RFID</span></a>
   </li>
-  <hr class="sidebar-divider">
-
   <li class="nav-item active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
       <i class="fas fa-fw fa-table"></i>

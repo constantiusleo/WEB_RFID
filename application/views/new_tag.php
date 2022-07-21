@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="row">
-        <!-- Datatables Master Data -->
+        <!--  Master Data -->
         <div class="col">
             <div class="card mb-4">
                 <div class="table-responsive p-3">
