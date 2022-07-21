@@ -79,7 +79,7 @@
         <div class="col">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">"Nama Customer"</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $customer; ?></h6>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush">
@@ -106,8 +106,8 @@
                         </tbody>
                     </table>
                     <div class="text-right">
-                        <a class="btn btn-secondary" href="./" role="button">Kembali ke Dashboard</a>
-                        <button type="button" href="ScanRFID" class="btn btn-primary mb-1">Pilih Customer Baru</button>
+                        <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
+                        <a class="btn btn-primary" href="<?= base_url('PilihCustomer'); ?>" role="button">Pilih Customer Selanjutnya</a>
                     </div>
                 </div>
             </div>

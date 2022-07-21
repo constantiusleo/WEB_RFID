@@ -23,7 +23,7 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Input</span>
     </a>
-    <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+    <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Pages</h6>
         <a class="collapse-item active" href="<?= base_url('InputNewType'); ?>">Input New Type</a>
