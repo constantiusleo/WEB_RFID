@@ -1,5 +1,5 @@
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('#'); ?>">
     <div class="sidebar-brand-icon">
       <img src="<?php echo base_url('assets/img/logo/aiia-logo.png'); ?>">
     </div>
