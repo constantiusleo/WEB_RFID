@@ -115,9 +115,7 @@
             <div class="form-group" bis_skin_checked="1">
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
             </div>
-            <div class="form-group" bis_skin_checked="1">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary text-right">Submit</button>
           </form>
         </div>
       </div>
