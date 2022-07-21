@@ -13,7 +13,7 @@ class PilihCustomer extends CI_Controller
 
     public function index()
     {
-        $data['data'] = $this->User_m->distinct_type()->result();
+        $data['data'] = $this->User_m->distinct_Customer()->result();
         $data['content'] = 'pilihCustomer';
         $this->load->view($this->layout, $data);
     }

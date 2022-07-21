@@ -108,9 +108,9 @@
                 <div class="card-body" bis_skin_checked="1">
                     <form>
                         <select class="form-control">
-                            <option>PALET HIJAU</option>
-                            <option>PALET BIRU</option>
-                            <option>BOX 331</option>
+                            <?php foreach ($data as $value) { ?>
+                                <option><?php echo $value->Type; ?></option>
+                            <?php } ?>
                         </select>
                         <div class="form-group align-self-end" bis_skin_checked="1">
                         </div>
