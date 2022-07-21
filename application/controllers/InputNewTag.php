@@ -26,6 +26,7 @@ class InputNewTag extends CI_Controller
 		$data['palet_biru_in_delivery'] = $this->User_m->count_palet_biru_in_delivery();
 		$data['palet_hijau_in_delivery'] = $this->User_m->count_palet_hijau_in_delivery();
 		$data['box_331_in_delivery'] = $this->User_m->count_box_331_in_delivery();
+
         $data['content'] = 'inputNewTag';
         $this->load->view($this->layout, $data);
     }

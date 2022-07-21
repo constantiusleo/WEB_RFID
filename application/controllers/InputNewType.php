@@ -30,4 +30,15 @@ class InputNewType extends CI_Controller
         $data['content'] = 'inputNewType';
         $this->load->view($this->layout, $data);
     }
+
+    public function NewType()
+    {
+        $type = $this->input->post('type');
+
+        $data = array(
+            'Type' => $type
+        );
+        $this->User_m->input_data($data, 'type_table');
+        redirect(base_url('#'));
+    }
 }

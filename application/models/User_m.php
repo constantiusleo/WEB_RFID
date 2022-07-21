@@ -109,4 +109,16 @@ class User_m extends CI_Model
         $this->db->distinct();
         return $this->db->get($this->table);
     }
+
+    public function distinct_Customer()
+    {
+        $this->db->select('Customer');
+        $this->db->distinct();
+        return $this->db->get($this->table);
+    }
+
+    function input_data($data, $table)
+    {
+        $this->db->insert($table, $data);
+    }
 }

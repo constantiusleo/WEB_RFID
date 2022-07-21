@@ -109,7 +109,7 @@
                     </table>
                     <div class="text-right">
                         <a class="btn btn-secondary" href="./" role="button">Kembali ke Dashboard</a>
-                        <button type="button" class="btn btn-primary mb-1">Pilih Customer Baru</button>
+                        <button type="button" href="ScanRFID" class="btn btn-primary mb-1">Pilih Customer Baru</button>
                     </div>
                 </div>
             </div>

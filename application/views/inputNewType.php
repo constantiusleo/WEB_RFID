@@ -110,11 +110,13 @@
           <h6 class="m-0 font-weight-bold text-primary">Form Type Baru</h6>
         </div>
         <div class="card-body" bis_skin_checked="1">
-          <form>
+          <form action="<?php echo base_url() . 'InputNewType/NewType'; ?>" method="post">
             <div class="form-group" bis_skin_checked="1">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Type Baru">
+              <input type="text" name="type" class="form-control" placeholder="Masukan Type Baru">
             </div>
-            <button type="submit" class="btn btn-primary text-right">Submit</button>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary text-right">Submit</button>
+            </div>
           </form>
         </div>
       </div>

@@ -74,4 +74,24 @@
       </div>
     </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4" bis_skin_checked="1">
+                <div class="card-body" bis_skin_checked="1">
+                    <form>
+                        <div class="form-group" bis_skin_checked="1">
+                            <select class="form-control">
+                                <?php foreach ($data as $value) { ?>
+                                    <option><?php echo $value->Customer; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="text-right">
+                            <a class="btn btn-primary btn-block" href="ScanRFID" role="button">Next</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
