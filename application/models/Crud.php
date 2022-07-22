@@ -11,10 +11,5 @@ class Crud extends CI_Model
     {
         $this->db->insert($table, $data);
     }
-
-    function delete_data($data, $table)
-    {
-        $this->db->where($data);
-        $this->db->delete($table);
-    }    
+   
 }

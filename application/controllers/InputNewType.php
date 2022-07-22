@@ -34,13 +34,15 @@ class InputNewType extends CI_Controller
         $this->Crud->input_data($data, 'Type_table');
         redirect(base_url('InputNewType'));
     }
-    
-    public function DeleteType($type)
+
+    public function del()
     {
-        $data = array(
-            'Type' => $type
-        );
-        $this->Crud->delete_data($data, 'type_table');
-        redirect(base_url('InputNewType'));
+        $id = $this->input->post('type');
+        $this->Type_table->del($id);
+
+        if($this->db->affected_rows() > 0){
+            echo"<script>alert('Data berhasil dihapus');</script>";
+        }
+        echo"<script>window.location='".site_url('InputNewType')."';</script>";
     }
 }
