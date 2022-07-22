@@ -85,16 +85,18 @@
             <thead class="thead-light">
               <tr>
                 <th>Type</th>
+                <th></th>
               </tr>
             </thead>
             <tfoot>
               <tr>
               </tr>
             </tfoot>
-            <tbody>
+            <tbody> 
               <?php foreach ($data as $value) { ?>
                 <tr>
                   <td><?php echo $value->Type; ?></td>
+                  <td><button class="btn btn-danger float-sm-right">Delete</button></td>
                 </tr>
               <?php } ?>
             </tbody>
