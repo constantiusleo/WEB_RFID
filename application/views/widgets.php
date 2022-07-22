@@ -89,18 +89,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><?php echo 'PALET HIJAU' ?></td>
-                <td><?php echo $palet_hijau ?></td>
-              </tr>
-              <tr>
-                <td><?php echo 'PALET BIRU' ?></td>
-                <td><?php echo $palet_biru ?></td>
-              </tr>
-              <tr>
-                <td><?php echo 'BOX 331' ?></td>
-                <td><?php echo $box_331 ?></td>
-              </tr>
+              <?php foreach ($s_type as $value) { ?>
+                <tr>
+                  <td><?php echo $value->Type; ?></td>
+                </tr>
+              <?php } ?>
             </tbody>
             </tfoot>
             <tr>

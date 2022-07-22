@@ -27,6 +27,9 @@ class Widgets extends CI_Controller
 		$data['palet_hijau_in_delivery'] = $this->Rfid_table->count_palet_hijau_in_delivery();
 		$data['box_331_in_delivery'] = $this->Rfid_table->count_box_331_in_delivery();
 		$data['s_type'] = $this->Rfid_table->distinct_type()->result();
+		foreach ($data['s_type'] as $value) {
+			$data['s_type_total'] = $this->Rfid_table->count_type($value->Type);
+		}
 		$data['content'] = 'widgets';
 		$this->load->view($this->layout, $data);
 	}
