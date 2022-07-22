@@ -17,11 +17,6 @@ class InputNewTag extends CI_Controller
     public function index()
     {
         $data['data'] = $this->Type_table->get()->result();
-        $data['palet_biru_available'] = $this->Rfid_table->count_palet_biru_available();
-        $data['palet_hijau_available'] = $this->Rfid_table->count_palet_hijau_available();
-        $data['palet_biru_in_delivery'] = $this->Rfid_table->count_palet_biru_in_delivery();
-        $data['palet_hijau_in_delivery'] = $this->Rfid_table->count_palet_hijau_in_delivery();
-
         $data['content'] = 'inputNewTag';
         $this->load->view($this->layout, $data);
     }

@@ -6,72 +6,6 @@
       <li class="breadcrumb-item"><a href="./">Home</a></li>
     </ol>
   </div>
-  <div class="row mb-3">
-    <!-- PALET BIRU Available Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <div class="row align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
-              <div class="h5 mb-0 font-weight-bold text-success mr-2"><?php echo $palet_biru_available ?></div>
-            </div>
-            <div class="col-auto">
-              <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- PALET HIJAU Available Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Hijau</div>
-              <div class="h5 mb-0 font-weight-bold text-success mr-2"><?php echo $palet_hijau_available ?></div>
-            </div>
-            <div class="col-auto">
-              <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- PALET BIRU Delivery Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
-              <div class="h5 mb-0 mr-3 font-weight-bold text-warning mr-2"><?php echo $palet_biru_in_delivery ?></div>
-            </div>
-            <div class="col-auto">
-              <img src="assets/img/truck.svg" alt="Bootstrap" width="32" height="32">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- PALET HIJAU Delivery  Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Hijau</div>
-              <div class="h5 mb-0 font-weight-bold text-warning mr-2"><?php echo $palet_hijau_in_delivery ?></div>
-            </div>
-            <div class="col-auto">
-              <img src="assets/img/truck.svg" alt="Bootstrap" width="32" height="32">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Row -->
   <div class="row">
     <!-- Datatables Number of Tags -->
@@ -89,9 +23,10 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($s_type as $value) { ?>
+              <?php foreach ($s_type as $value_type) { ?>
                 <tr>
-                  <td><?php echo $value->Type; ?></td>
+                  <td><?php echo $value_type->Type; ?></td>
+                  <td><?php echo $s_type_total[$value_type->Type]; ?></td>
                 </tr>
               <?php } ?>
             </tbody>
@@ -122,18 +57,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><?php echo 'PALET HIJAU' ?></td>
-                <td><?php echo $palet_hijau_available ?></td>
-              </tr>
-              <tr>
-                <td><?php echo 'PALET BIRU' ?></td>
-                <td><?php echo $palet_biru_available ?></td>
-              </tr>
-              <tr>
-                <td><?php echo 'BOX 331' ?></td>
-                <td><?php echo $box_331_available ?></td>
-              </tr>
+              <?php foreach ($s_type as $value_type) { ?>
+                <tr>
+                  <td><?php echo $value_type->Type; ?></td>
+                  <td><?php echo $s_type_total_available[$value_type->Type]; ?></td>
+                </tr>
+              <?php } ?>
             </tbody>
             </tfoot>
             <tr>
@@ -162,18 +91,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><?php echo 'PALET HIJAU' ?></td>
-                <td><?php echo $palet_hijau_in_delivery ?></td>
-              </tr>
-              <tr>
-                <td><?php echo 'PALET BIRU' ?></td>
-                <td><?php echo $palet_biru_in_delivery ?></td>
-              </tr>
-              <tr>
-                <td><?php echo 'BOX 331' ?></td>
-                <td><?php echo $box_331_in_delivery ?></td>
-              </tr>
+              <?php foreach ($s_type as $value_type) { ?>
+                <tr>
+                  <td><?php echo $value_type->Type; ?></td>
+                  <td><?php echo $s_type_total_in_delivery[$value_type->Type]; ?></td>
+                </tr>
+              <?php } ?>
             </tbody>
             </tfoot>
             <tr>
@@ -235,3 +158,23 @@
     </div>
   </div>
 </div>
+
+<!--
+<div class="row mb-3">
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-uppercase mb-1">Palet Biru</div>
+            <div class="h5 mb-0 font-weight-bold text-success mr-2"> < ?php echo $s_type_total_available['PALET BIRU'] ?></div>
+          </div>
+          <div class="col-auto">
+            <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->

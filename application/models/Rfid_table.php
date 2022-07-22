@@ -41,70 +41,17 @@ class Rfid_table extends CI_Model
         return $this->db->count_all_results();
     }
 
-    public function count_palet_biru()
+    public function count_type_available($data_type)
     {
-        $this->db->like('Type', 'PALET_BIRU');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_palet_hijau()
-    {
-        $this->db->like('Type', 'PALET_HIJAU');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_box_331()
-    {
-        $this->db->like('Type', 'BOX_331');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_palet_biru_available()
-    {
-        $this->db->like('Type', 'PALET_BIRU');
+        $this->db->like('Type', $data_type);
         $this->db->like('Status', 'AVAILABLE');
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
-    public function count_palet_hijau_available()
+    public function count_type_in_delivery($data_type)
     {
-        $this->db->like('Type', 'PALET_HIJAU');
-        $this->db->like('Status', 'AVAILABLE');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_box_331_available()
-    {
-        $this->db->like('Type', 'BOX_331');
-        $this->db->like('Status', 'AVAILABLE');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_palet_biru_in_delivery()
-    {
-        $this->db->like('Type', 'PALET_BIRU');
-        $this->db->like('Status', 'IN_DELIVERY');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_palet_hijau_in_delivery()
-    {
-        $this->db->like('Type', 'PALET_HIJAU');
-        $this->db->like('Status', 'IN_DELIVERY');
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    public function count_box_331_in_delivery()
-    {
-        $this->db->like('Type', 'BOX_331');
+        $this->db->like('Type', $data_type);
         $this->db->like('Status', 'IN_DELIVERY');
         $this->db->from($this->table);
         return $this->db->count_all_results();
