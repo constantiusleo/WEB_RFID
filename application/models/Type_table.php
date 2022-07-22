@@ -14,10 +14,4 @@ class Type_table extends CI_Model
     {
         return $this->db->get($this->table);
     }
-
-    public function del($id)
-    {
-        $this->db->where('Type',$id);
-        $this->db->delete('type_table');
-    }
 }

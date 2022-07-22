@@ -92,17 +92,17 @@
               <tr>
               </tr>
             </tfoot>
-            <tbody> 
+            <tbody>
               <?php foreach ($data as $value) { ?>
                 <tr>
                   <td><?php echo $value->Type; ?></td>
                   <td>
-                    <form action="<?=site_url('InputNewType/del')?>"method="post">
-                    <input type ="hidden" name="type" value ="<?=$value->Type?>">
-                      <button onclick ="return confirm('Apakah ingin menghapus Type?')"class="btn btn-danger float-sm-right">Delete
+                    <form action="<?= site_url('InputNewType/del') ?>" method="post">
+                      <input type="hidden" name="type" value="<?= $value->Type ?>">
+                      <button onclick="return confirm('Apakah ingin menghapus Type?')" class="btn btn-danger float-sm-right">Delete
                       </button>
                     </form>
-                </td>
+                  </td>
                 </tr>
               <?php } ?>
             </tbody>

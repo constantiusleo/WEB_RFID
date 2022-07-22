@@ -38,11 +38,11 @@ class InputNewType extends CI_Controller
     public function del()
     {
         $id = $this->input->post('type');
-        $this->Type_table->del($id);
+        $this->Crud->del($id);
 
-        if($this->db->affected_rows() > 0){
-            echo"<script>alert('Data berhasil dihapus');</script>";
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>alert('Data berhasil dihapus');</script>";
         }
-        echo"<script>window.location='".site_url('InputNewType')."';</script>";
+        echo "<script>window.location='" . site_url('InputNewType') . "';</script>";
     }
 }
