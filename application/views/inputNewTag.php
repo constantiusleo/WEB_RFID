@@ -16,6 +16,23 @@
         <li class="breadcrumb-item active" aria-current="page">New tag</li>
       </ol>
     </div>
+    <div class="row mb-3">
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-uppercase mb-1">Tags Scanned</div>
+                <div id="total_scanned" class="h5 mb-0 font-weight-bold text-success mr-2">0</div>
+              </div>
+              <div class="col-auto">
+                <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <!--  Master Data -->
       <div class="col">
@@ -25,19 +42,13 @@
           </div>
           <button type="submit" class="btn btn-primary btn-block">Start Scanning</button>
           <div class="table-responsive p-3">
-            <table class="table table-bordered align-items-center table-flush">
+            <table id="epc_table" class="table table-bordered align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
                   <th scope='col'>No</th>
                   <th scope='col-7'>EPC</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th>1</th>
-                  <th>0C00 2802 9C13 0124 9000 3B3B 2C01</th>
-                </tr>
-              </tbody>
             </table>
           </div>
         </div>
@@ -82,6 +93,8 @@
       onFailure: doFail
     }
 
+    var i = 0;
+
     // connect the client
     client.connect(options);
 
@@ -92,9 +105,6 @@
 
       client.subscribe("rfid_tags_epc");
 
-      message = new Paho.MQTT.Message("Data Berhasil");
-      message.destinationName = "rfid_tags_epc";
-      client.send(message);
     }
 
     function doFail(e) {
@@ -112,6 +122,15 @@
     // called when a message arrives
     function onMessageArrived(message) {
       console.log(message.payloadString);
+      i++;
+      document.getElementById("total_scanned").innerHTML = i;
+
+      var table = document.getElementById("epc_table");
+      var row = table.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = i;
+      cell2.innerHTML = message.payloadString;
     }
   </script>
 </body>
