@@ -78,7 +78,7 @@
   </div>
   <script type="text/javascript" language="javascript">
     // Create a client instance
-    client = new Paho.MQTT.Client("192.168.1.88", 8080, "web_" + parseInt(Math.random() * 100, 10));
+    client = new Paho.MQTT.Client("172.16.6.21", 9001, "web_" + parseInt(Math.random() * 100, 10));
     // client = new Paho.MQTT.Client("13.76.228.167", 8083,"web_" + parseInt(Math.random() * 100, 10));
 
     // set callback handlers
@@ -87,8 +87,8 @@
 
     //############# ATTENTION: Enter Your MQTT user and password details ########  
     var options = {
-      userName: "admin_mqtt_test",
-      password: "aii2022",
+      userName: "AdminMQTT",
+      password: "pwd123",
       onSuccess: onConnect,
       onFailure: doFail
     }
