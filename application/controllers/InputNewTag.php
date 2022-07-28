@@ -24,15 +24,15 @@ class InputNewTag extends CI_Controller
     public function NewTag()
     {
         $type = $this->input->post('select_type');
-        // $EPC = $this->input->post('EPC');
-        $EPC = 'TEST';
-
-        $data = array(
-            'EPC' => $EPC,
-            'Type' => $type,
-            'Status' => 'AVAILABLE'
-        );
-        $this->Crud->input_data($data, 'master');
+        for ($i = 1; $i <= $this->input->post('number'); $i++) {
+            $EPC = $this->input->post("epc_" . $i);
+            $data = array(
+                'EPC' => $EPC,
+                'Type' => $type,
+                'Status' => 'AVAILABLE'
+            );
+            $this->Crud->input_data($data, 'master');
+        }
         redirect(base_url('#'));
     }
 }

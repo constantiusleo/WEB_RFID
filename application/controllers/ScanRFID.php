@@ -17,4 +17,19 @@ class ScanRFID extends CI_Controller
         $data['customer'] = $this->input->post('customer');
         $this->load->view($this->layout, $data);
     }
+
+    public function TagScanned()
+    {
+        $type = $this->input->post('costumer_data');
+        for ($i = 1; $i <= $this->input->post('number'); $i++) {
+            $EPC = $this->input->post("epc_" . $i);
+            $data = array(
+                'EPC' => $EPC,
+                'Type' => $type,
+                'Status' => 'AVAILABLE'
+            );
+            $this->Crud->input_data($data, 'master');
+        }
+        redirect(base_url('#'));
+    }
 }
