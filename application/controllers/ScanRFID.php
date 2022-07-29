@@ -8,6 +8,7 @@ class ScanRFID extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Rfid_table');
+        $this->load->model('Crud');
         $this->layout = 'template/container';
     }
 
@@ -16,5 +17,31 @@ class ScanRFID extends CI_Controller
         $data['content'] = 'scanRFID';
         $data['customer'] = $this->input->post('customer');
         $this->load->view($this->layout, $data);
+    }
+
+    public function TagScanned()
+    {
+        if (isset($_POST['epc_send'])) {
+            if (!empty($_POST['epc_send'])) {
+                $epc = $this->input->post('epc_send');
+                $date = new DateTime("now");
+                $curr_date = $date->format('Y-m-d ');
+
+                $epc_data = array(
+                    'epc_send' => $epc,
+                    'customer' => $this->input->post('epc_customer'),
+                    'time' => $curr_date
+                );
+
+                $this->Rfid_table->update_TagsScanned($epc_data);
+
+                $data['status'] = true;
+                $data['epc_received'] = $this->Rfid_table->check_Type($epc);
+                $data['epc_time'] = $curr_date;
+                if ('IS_AJAX') {
+                    echo json_encode($data);
+                }
+            }
+        }
     }
 }
