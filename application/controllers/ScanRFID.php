@@ -15,34 +15,32 @@ class ScanRFID extends CI_Controller
     public function index()
     {
         $data['content'] = 'scanRFID';
-        $data_temp = $this->Rfid_table->check_Type("0C00 2802 9C13 0124 9000 3B3B 2C01")->result();
-        $data['data'] = $data_temp->Type;
         $data['customer'] = $this->input->post('customer');
         $this->load->view($this->layout, $data);
     }
 
     public function TagScanned()
     {
-        $type = $this->input->post('costumer_data');
-        for ($i = 1; $i <= $this->input->post('number'); $i++) {
-            $EPC = $this->input->post("epc_" . $i);
-            $data = array(
-                'EPC' => $EPC,
-                'Status' => 'IN_DELIVERY',
-                'Last_Seen' => 'current_timestamp()'
-            );
-            $this->Crud->input_data($data, 'master');
-        }
-        redirect(base_url('#'));
-    }
-    public function TagType()
-    {
         if (isset($_POST['epc_send'])) {
             if (!empty($_POST['epc_send'])) {
-                $epc = $_POST['epc_send'];
-                $data_type = $this->Rfid_table->check_Type($epc)->result();
-                $data_type_a = $data_type["Type"];
-                echo $data_type_a;
+                $epc = $this->input->post('epc_send');
+                $date = new DateTime("now");
+                $curr_date = $date->format('Y-m-d ');
+
+                $epc_data = array(
+                    'epc_send' => $epc,
+                    'customer' => $this->input->post('epc_customer'),
+                    'time' => $curr_date
+                );
+
+                $this->Rfid_table->update_TagsScanned($epc_data);
+
+                $data['status'] = true;
+                $data['epc_received'] = $this->Rfid_table->check_Type($epc);
+                $data['epc_time'] = $curr_date;
+                if ('IS_AJAX') {
+                    echo json_encode($data);
+                }
             }
         }
     }
