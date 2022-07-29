@@ -11,15 +11,8 @@
     <!-- Container Fluid-->
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="display-2 mb-0 text-gray-800"><?php echo $customer; ?></h1>
-            <ol class="breadcrumb">
-                <div class="text-right">
-                    <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
-                    <a class="btn btn-primary" href="<?= base_url('PilihCustomer'); ?>" role="button">Pilih Customer Selanjutnya</a>
-                </div>
-            </ol>
         </div>
-        <div class="row">
+     <div class="row">
             <!-- Datatables Master Data -->
             <div class="col">
                 <form action="<?php echo base_url() . 'ScanRFID_In/TagScanned'; ?>" method="post">

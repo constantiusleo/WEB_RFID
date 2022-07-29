@@ -19,7 +19,7 @@
     <div id="collapseTables" class="collapse" aria-labelledby="headingTables" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Scan</h6>
-        <a class="collapse-item active" href="<?= base_url('PilihCustomer'); ?>">Box Masuk</a>
+        <a class="collapse-item active" href="<?= base_url('ScanRFID_In'); ?>">Box Masuk</a>
         <a class="collapse-item active" href="<?= base_url('PilihCustomer'); ?>">Box Keluar</a>
       </div>
     </div>
