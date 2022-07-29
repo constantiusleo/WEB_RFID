@@ -11,11 +11,18 @@
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
-
   <li class="nav-item active">
-    <a class="nav-link" href="<?= base_url('PilihCustomer'); ?>">
-      <i class="fab fa-fw fa-wpforms"></i>
-      <span>Scan RFID</span></a>
+    <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapseTables" aria-expanded="true" aria-controls="collapseTables">
+    <img src="assets/img/scan.svg" alt="Bootstrap" width="16" height="16">
+      <span>Scan RFID</span>
+    </a>
+    <div id="collapseTables" class="collapse" aria-labelledby="headingTables" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Scan</h6>
+        <a class="collapse-item active" href="<?= base_url('PilihCustomer'); ?>">Box Masuk</a>
+        <a class="collapse-item active" href="<?= base_url('PilihCustomer'); ?>">Box Keluar</a>
+      </div>
+    </div>
   </li>
   <li class="nav-item active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">

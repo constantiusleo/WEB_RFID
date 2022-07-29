@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class ScanRFID extends CI_Controller
+class ScanRFID_In extends CI_Controller
 {
 
     public function __construct()
@@ -14,7 +14,7 @@ class ScanRFID extends CI_Controller
 
     public function index()
     {
-        $data['content'] = 'scanRFID';
+        $data['content'] = 'scanRFID_in';
         $data['customer'] = $this->input->post('customer');
         $this->load->view($this->layout, $data);
     }

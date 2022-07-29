@@ -22,7 +22,7 @@
         <div class="row">
             <!-- Datatables Master Data -->
             <div class="col">
-                <form action="<?php echo base_url() . 'ScanRFID/TagScanned'; ?>" method="post">
+                <form action="<?php echo base_url() . 'ScanRFID_In/TagScanned'; ?>" method="post">
                     <div class="card mb-4">
                         <input class="form-control" name="costumer_data" id="costumer_data" type="hidden" value=<?php echo $customer; ?>>
                         <input class="form-control" name="number" id="number" type="hidden" value="0">
@@ -96,7 +96,7 @@
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: "<?php echo site_url() . 'ScanRFID/TagScanned'; ?>",
+                url: "<?php echo site_url() . 'ScanRFID_In/TagScanned'; ?>",
                 data: {
                     epc_send: mess,
                     epc_customer: cust

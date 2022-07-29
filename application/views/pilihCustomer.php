@@ -12,7 +12,7 @@
     <div class="col">
       <div class="card mb-4" bis_skin_checked="1">
         <div class="card-body" bis_skin_checked="1">
-          <form action="<?php echo base_url() . 'ScanRFID'; ?>" method="post">
+          <form action="<?php echo base_url() . 'ScanRFID_In'; ?>" method="post">
             <div class="form-group" bis_skin_checked="1">
               <select class="form-control" name=customer>
                 <?php foreach ($data as $value) { ?>
