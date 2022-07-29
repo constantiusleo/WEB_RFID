@@ -1,5 +1,7 @@
 <?php
 
+use LDAP\Result;
+
 class Rfid_table extends CI_Model
 {
 
@@ -68,6 +70,19 @@ class Rfid_table extends CI_Model
     {
         $this->db->select('Customer');
         $this->db->distinct();
+        return $this->db->get($this->table);
+    }
+
+    public function update_TagsScanned()
+    {
+        $this->db->select('Customer');
+        $this->db->distinct();
+        return $this->db->get($this->table);
+    }
+
+    public function check_Type($epc_to_check)
+    {
+        $this->db->where('EPC', $epc_to_check);
         return $this->db->get($this->table);
     }
 }

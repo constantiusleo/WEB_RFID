@@ -3,7 +3,9 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
+
 
 <body>
     <!-- Container Fluid-->
@@ -34,31 +36,12 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>EPC</th>
-                                        <th>Type</th>
-                                        <th>Waktu</th>
+                                        <th style="width:60%;">EPC</th>
+                                        <th style="width:20%;">Type</th>
+                                        <th style="width:20%;">Waktu</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <td>
-                                        <center><input class="form-control" name="no1" id="no1" type="text" value="1" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no2" id="no2" type="text" value="2" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no3" id="no3" type="text" value="3" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no4" id="no4" type="text" value="4" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no5" id="no5" type="text" value="5" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no6" id="no6" type="text" value="6" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no7" id="no7" type="text" value="7" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no8" id="no8" type="text" value="8" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no9" id="no9" type="text" value="9" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no10" id="no10" type="text" value="10" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no11" id="no11" type="text" value="11" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no12" id="no12" type="text" value="12" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no13" id="no13" type="text" value="13" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no14" id="no14" type="text" value="14" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no15" id="no15" type="text" value="15" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;margin-bottom:5px"></center>
-                                        <center><input class="form-control" name="no16" id="no16" type="text" value="16" style="text-align:center;height:40px;font-size: 13px;font-weight:bold;border:1px solid #FFFFFF;background: transparent;display:none;"></center>
-
-                                    </td>
                                     <td>
                                         <center><input class="form-control" onfocus="this.value=''" name="epc_1" id="epc_1" type="text" step="any" autofocus style="text-align:center;height:40px;font-size: 15px;font-weight:bold;margin-bottom:5px"></center>
                                         <center><input class="form-control" onfocus="this.value=''" name="epc_2" id="epc_2" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
@@ -77,7 +60,32 @@
                                         <center><input class="form-control" onfocus="this.value=''" name="epc_15" id="epc_15" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
                                         <center><input class="form-control" onfocus="this.value=''" name="epc_16" id="epc_16" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;"></center>
                                     </td>
+                                    <td>
+                                        <center>
+                                            <div id="type_1" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:block;margin-bottom:5px;margin-top:5px"></div>
+                                            <div id="type_2" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_3" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_4" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_5" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_6" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_7" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_8" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_9" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_10" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_11" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_12" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_13" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_14" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_15" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                            <div id="type_16" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;"></div>
+                                        </center>
+                                    </td>
                                 </tbody>
+                                <tfoot>
+                                    <th style="width:60%;"><?php echo $data; ?>></th>
+                                    <th style="width:20%;">Type</th>
+                                    <th style="width:20%;">Waktu</th>
+                                </tfoot>
                             </table>
                         </div>
                 </form>
@@ -126,7 +134,14 @@
                 console.log("onConnectionLost:" + responseObject.errorMessage);
             }
         }
-
+        $(".form-control").change(function() {
+            var epc_data = $("input").val();
+            $.post("<?php echo base_url() . 'ScanRFID/TagType'; ?>", {
+                epc_send: epc_data
+            }, function(data) {
+                $("#type_".concat(i)).html(data)
+            });
+        });
         // called when a message arrives
         function onMessageArrived(message) {
             console.log(message.payloadString);
@@ -138,9 +153,7 @@
             document.getElementById("number").value = i;
             var table = document.getElementById("");
             var newpos = i + 1;
-            var nomor_next = "no".concat(newpos);
             var posisi_next = "epc_".concat(newpos);
-            document.getElementById(nomor_next).style.display = "block";
             document.getElementById(posisi_next).style.display = "block";
             document.getElementById(posisi_next).focus();
         }

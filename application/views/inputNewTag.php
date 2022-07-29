@@ -23,7 +23,7 @@
             <div class="row align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
-                <div id="total_scanned" class="h5 mb-0 font-weight-bold text-success mr-2">0</div>
+                <div id="total_scanned" class="h5 mb-0 font-weight-bold mr-2">0</div>
               </div>
               <div class="col-auto">
                 <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
@@ -53,6 +53,26 @@
                 </thead>
                 <tbody>
                   <td>
+                    <center>
+                      <div id="no1" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:block;margin-bottom:5px;margin-top:5px">1</div>
+                      <div id="no2" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">2</div>
+                      <div id="no3" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">3</div>
+                      <div id="no4" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">4</div>
+                      <div id="no5" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">5</div>
+                      <div id="no6" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">6</div>
+                      <div id="no7" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">7</div>
+                      <div id="no8" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">8</div>
+                      <div id="no9" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">9</div>
+                      <div id="no10" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">10</div>
+                      <div id="no11" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">11</div>
+                      <div id="no12" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">12</div>
+                      <div id="no13" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">13</div>
+                      <div id="no14" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">14</div>
+                      <div id="no15" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">15</div>
+                      <div id="no16" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px;">16</div>
+                    </center>
+                  </td>
+                  <td>
                     <center><input class="form-control" onfocus="this.value=''" name="epc_1" id="epc_1" type="text" step="any" autofocus style="text-align:center;height:40px;font-size: 15px;font-weight:bold;margin-bottom:5px"></center>
                     <center><input class="form-control" onfocus="this.value=''" name="epc_2" id="epc_2" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
                     <center><input class="form-control" onfocus="this.value=''" name="epc_3" id="epc_3" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
@@ -69,24 +89,6 @@
                     <center><input class="form-control" onfocus="this.value=''" name="epc_14" id="epc_14" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
                     <center><input class="form-control" onfocus="this.value=''" name="epc_15" id="epc_15" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
                     <center><input class="form-control" onfocus="this.value=''" name="epc_16" id="epc_16" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;"></center>
-                  </td>
-                  <td>
-                    <center><input class="form-control" value='' name="type_1" id="type_1" type="text" step="any" autofocus style="text-align:center;height:40px;font-size: 15px;font-weight:bold;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_2" id="type_2" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_3" id="type_3" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_4" id="type_4" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_5" id="type_5" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_6" id="type_6" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_7" id="type_7" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_8" id="type_8" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_9" id="type_9" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_10" id="type_10" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_11" id="type_11" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_12" id="type_12" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_13" id="type_13" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_14" id="type_14" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_15" id="type_15" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;margin-bottom:5px"></center>
-                    <center><input class="form-control" value='' name="type_16" id="type_16" type="text" step="any" style="text-align:center;height:40px;font-size: 15px;font-weight:bold;display:none;"></center>
                   </td>
                 </tbody>
               </table>
@@ -111,67 +113,70 @@
             </div>
             </form>
           </div>
-          <script type="text/javascript" language="javascript">
-            // Create a client instance
-            client = new Paho.MQTT.Client("192.168.1.88", 9001, "web_" + parseInt(Math.random() * 100, 10));
-            // set callback handlers
-            client.onConnectionLost = onConnectionLost;
-            client.onMessageArrived = onMessageArrived;
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" language="javascript">
+    // Create a client instance
+    client = new Paho.MQTT.Client("192.168.1.88", 9001, "web_" + parseInt(Math.random() * 100, 10));
+    // set callback handlers
+    client.onConnectionLost = onConnectionLost;
+    client.onMessageArrived = onMessageArrived;
 
-            //############# ATTENTION: Enter Your MQTT user and password details ########  
-            var options = {
-              userName: "AdminMQTT",
-              password: "pwd123",
-              onSuccess: onConnect,
-              onFailure: doFail
-            }
+    //############# ATTENTION: Enter Your MQTT user and password details ########  
+    var options = {
+      userName: "AdminMQTT",
+      password: "pwd123",
+      onSuccess: onConnect,
+      onFailure: doFail
+    }
 
-            var i = 0;
+    var i = 0;
 
-            // connect the client
-            client.connect(options);
+    // connect the client
+    client.connect(options);
 
-            // called when the client connects
-            function onConnect() {
-              // Once a connection has been made, make a subscription and send a message.
-              console.log("onConnect");
+    // called when the client connects
+    function onConnect() {
+      // Once a connection has been made, make a subscription and send a message.
+      console.log("onConnect");
 
-              client.subscribe("rfid_tags_epc");
+      client.subscribe("rfid_tags_epc");
 
-            }
+    }
 
-            function doFail(e) {
-              console.log("GAGAL");
-              console.log(e);
-            }
+    function doFail(e) {
+      console.log("GAGAL");
+      console.log(e);
+    }
 
-            // called when the client loses its connection
-            function onConnectionLost(responseObject) {
-              if (responseObject.errorCode !== 0) {
-                console.log("onConnectionLost:" + responseObject.errorMessage);
-              }
-            }
+    // called when the client loses its connection
+    function onConnectionLost(responseObject) {
+      if (responseObject.errorCode !== 0) {
+        console.log("onConnectionLost:" + responseObject.errorMessage);
+      }
+    }
 
-            // called when a message arrives
-            function onMessageArrived(message) {
-              console.log(message.payloadString);
-              var mess = message.payloadString;
-              i++;
-              document.getElementById("total_scanned").innerHTML = i;
+    // called when a message arrives
+    function onMessageArrived(message) {
+      console.log(message.payloadString);
+      var mess = message.payloadString;
+      i++;
+      document.getElementById("total_scanned").innerHTML = i;
 
-              var focused = document.activeElement.getAttribute("name");
-              document.getElementById(focused).value = mess;
-
-              document.getElementById("number").value = i;
-              var table = document.getElementById("");
-              var newpos = i + 1;
-              var nomor_next = "no".concat(newpos);
-              var posisi_next = "epc_".concat(newpos);
-              document.getElementById(nomor_next).style.display = "block";
-              document.getElementById(posisi_next).style.display = "block";
-              document.getElementById(posisi_next).focus();
-            }
-          </script>
+      var focused = document.activeElement.getAttribute("name");
+      document.getElementById(focused).value = mess;
+      document.getElementById("number").value = i;
+      var table = document.getElementById("");
+      var newpos = i + 1;
+      var nomor_next = "no".concat(newpos);
+      var posisi_next = "epc_".concat(newpos);
+      document.getElementById(nomor_next).style.display = "block";
+      document.getElementById(posisi_next).style.display = "block";
+      document.getElementById(posisi_next).focus();
+    }
+  </script>
 </body>
 
 </html>
