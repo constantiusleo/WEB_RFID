@@ -11693,4 +11693,11 @@ a.text-dark:focus {
     color: inherit;
     border-color: #e3e6f0;
   }
+
+  .space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+  }
+  
 }

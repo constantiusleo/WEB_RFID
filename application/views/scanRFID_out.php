@@ -16,9 +16,76 @@
                 <div class="text-right">
                     <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
                     <a class="btn btn-primary" href="<?= base_url('PilihCustomer'); ?>" role="button">Pilih Customer Selanjutnya</a>
+                    <div class="my-2">
+                    </div>
+                    <a class="btn btn-primary btn-lg btn-block " href="<?= base_url('PilihCustomer'); ?>" role="button">Submit</a>
                 </div>
             </ol>
         </div>
+        <div class="row mb-3">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
+                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
+                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
+                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
+                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                            </div>
+                            <div class="col-auto">
+                                <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <!-- Datatables Master Data -->
             <div class="col">

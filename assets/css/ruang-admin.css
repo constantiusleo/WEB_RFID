@@ -1918,3 +1918,9 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #3f51b5;
   border-color: #3f51b5
 }
+
+.space {
+  width: 4px;
+  height: auto;
+  display: inline-block;
+}
