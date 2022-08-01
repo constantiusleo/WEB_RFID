@@ -142,7 +142,7 @@
       // Once a connection has been made, make a subscription and send a message.
       console.log("onConnect");
 
-      client.subscribe("rfid_tags_epc");
+      client.subscribe("rfid_tags_epc_in");
 
     }
 

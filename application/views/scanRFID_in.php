@@ -12,7 +12,7 @@
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
         </div>
-     <div class="row">
+        <div class="row">
             <!-- Datatables Master Data -->
             <div class="col">
                 <form action="<?php echo base_url() . 'ScanRFID_In/TagScanned'; ?>" method="post">
@@ -65,7 +65,7 @@
             // Once a connection has been made, make a subscription and send a message.
             console.log("onConnect");
 
-            client.subscribe("rfid_tags_epc");
+            client.subscribe("rfid_tags_epc_in");
 
         }
 
