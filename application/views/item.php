@@ -13,6 +13,7 @@
       <div class="card mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">DOC.ID</h6>
+          <h6 onclick="window.location.href='/WEB_RFID/header';" class="btn btn-primary float-sm-center">Kembali</h6>
         </div>
         <div class="table-responsive p-3">
           <table class="table align-items-center table-flush" id="dataTable">

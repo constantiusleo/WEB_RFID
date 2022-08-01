@@ -42,11 +42,8 @@
                   <td><?php echo $value->Last_Seen; ?></td>
                   <td><?php echo $value->Type; ?></td>
                   <td>
-                    <form action="<?= site_url('InputNewType/del') ?>" method="post">
-                      <input type="hidden" name="type" value="<?= $value->Type ?>">
-                      <button onclick="return confirm('Apakah ingin menghapus Type?')" class="btn btn-primary float-sm-center">Detail
+                      <button onclick="window.location.href='/WEB_RFID/Item';" class="btn btn-primary float-sm-center">Detail
                       </button>
-                    </form>
                   </td>
                 </tr>
               <?php } ?>
