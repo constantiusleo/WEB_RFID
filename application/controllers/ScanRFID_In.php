@@ -30,10 +30,11 @@ class ScanRFID_In extends CI_Controller
                 $epc_data = array(
                     'epc_send' => $epc,
                     'customer' => $this->input->post('epc_customer'),
-                    'time' => $curr_date
+                    'time' => $curr_date,
+                    'status_change' => "AVAILABLE"
                 );
 
-                $this->Rfid_table->update_TagsScannedIn($epc_data);
+                $this->Rfid_table->update_TagsScanned_in($epc_data);
 
                 $data['status'] = true;
                 $data['epc_received'] = $this->Rfid_table->check_Type($epc);

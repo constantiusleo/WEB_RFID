@@ -77,19 +77,11 @@ class Rfid_table extends CI_Model
     {
         extract($data);
         $this->db->where('EPC', $epc_send);
-        $this->db->update($this->table, array('Customer' => $customer));
-        $this->db->update($this->table, array('Last_Seen' => $time));
-        $this->db->update($this->table, array('Status' => 'IN_DELIVERY'));
-        return true;
-    }
-
-    public function update_TagsScannedIn($data)
-    {
-        extract($data);
-        $this->db->where('EPC', $epc_send);
-        $this->db->update($this->table, array('Customer' => $customer));
-        $this->db->update($this->table, array('Last_Seen' => $time));
-        $this->db->update($this->table, array('Status' => 'AVAILABLE'));
+        $this->db->update($this->table, array(
+            'Status' => $status_change,
+            'Customer' => $customer,
+            'Last_Seen' => $time
+        ));
         return true;
     }
 
