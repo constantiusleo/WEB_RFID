@@ -73,7 +73,18 @@ class Rfid_table extends CI_Model
         return $this->db->get($this->table);
     }
 
-    public function update_TagsScanned($data)
+    public function update_TagsScanned_in($data)
+    {
+        extract($data);
+        $this->db->where('EPC', $epc_send);
+        $this->db->update($this->table, array(
+            'Status' => $status_change,
+            'Last_Seen' => $time
+        ));
+        return true;
+    }
+
+    public function update_TagsScanned_out($data)
     {
         extract($data);
         $this->db->where('EPC', $epc_send);

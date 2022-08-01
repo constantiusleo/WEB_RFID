@@ -15,7 +15,6 @@ class ScanRFID_In extends CI_Controller
     public function index()
     {
         $data['content'] = 'scanRFID_in';
-        $data['customer'] = $this->input->post('customer');
         $this->load->view($this->layout, $data);
     }
 
@@ -29,7 +28,6 @@ class ScanRFID_In extends CI_Controller
 
                 $epc_data = array(
                     'epc_send' => $epc,
-                    'customer' => $this->input->post('epc_customer'),
                     'time' => $curr_date,
                     'status_change' => "AVAILABLE"
                 );

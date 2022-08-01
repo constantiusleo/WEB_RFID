@@ -34,7 +34,7 @@ class ScanRFID_Out extends CI_Controller
                     'status_change' => "IN_DELIVERY"
                 );
 
-                $this->Rfid_table->update_TagsScanned($epc_data);
+                $this->Rfid_table->update_TagsScanned_out($epc_data);
 
                 $data['status'] = true;
                 $data['epc_received'] = $this->Rfid_table->check_Type($epc);

@@ -17,7 +17,6 @@
             <div class="col">
                 <form action="<?php echo base_url() . 'ScanRFID_In/TagScanned'; ?>" method="post">
                     <div class="card mb-4">
-                        <input class="form-control" name="costumer_data" id="costumer_data" type="hidden" value=<?php echo $customer; ?>>
                         <input class="form-control" name="number" id="number" type="hidden" value="0">
                         <div class="table-responsive p-3">
                             <table id="epc_table" class="table align-items-center table-flush">
@@ -42,7 +41,7 @@
 
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("192.168.1.88", 9001, "web_" + parseInt(Math.random() * 100, 10));
+        client = new Paho.MQTT.Client("172.16.6.21", 9001, "web_" + parseInt(Math.random() * 100, 10));
         // set callback handlers
         client.onConnectionLost = onConnectionLost;
         client.onMessageArrived = onMessageArrived;
@@ -84,7 +83,6 @@
         function onMessageArrived(message) {
             console.log(message.payloadString);
             var mess = message.payloadString;
-            var cust = "<?php echo $customer; ?>";
             i++;
             $.ajax({
                 type: "POST",
@@ -92,7 +90,6 @@
                 url: "<?php echo site_url() . 'ScanRFID_In/TagScanned'; ?>",
                 data: {
                     epc_send: mess,
-                    epc_customer: cust
                 },
                 success: function(data) {
                     if (data.status == false) {

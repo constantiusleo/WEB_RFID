@@ -119,7 +119,7 @@
   </div>
   <script type="text/javascript" language="javascript">
     // Create a client instance
-    client = new Paho.MQTT.Client("192.168.1.88", 9001, "web_" + parseInt(Math.random() * 100, 10));
+    client = new Paho.MQTT.Client("172.16.6.21", 9001, "web_" + parseInt(Math.random() * 100, 10));
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
@@ -142,7 +142,7 @@
       // Once a connection has been made, make a subscription and send a message.
       console.log("onConnect");
 
-      client.subscribe("rfid_tags_epc_in");
+      client.subscribe("rfid_tags_epc_out");
 
     }
 
@@ -168,7 +168,6 @@
       var focused = document.activeElement.getAttribute("name");
       document.getElementById(focused).value = mess;
       document.getElementById("number").value = i;
-      var table = document.getElementById("");
       var newpos = i + 1;
       var nomor_next = "no".concat(newpos);
       var posisi_next = "epc_".concat(newpos);
