@@ -27,22 +27,35 @@ class ScanRFID_Out extends CI_Controller
                 $date = new DateTime("now");
                 $curr_date = $date->format('Y-m-d ');
 
-                $epc_data = array(
-                    'epc_send' => $epc,
-                    'customer' => $this->input->post('epc_customer'),
-                    'time' => $curr_date,
-                    'status_change' => "IN_DELIVERY"
-                );
-
-                $this->Rfid_table->update_TagsScanned_out($epc_data);
-
                 $data['status'] = true;
-                $data['epc_received'] = $this->Rfid_table->check_Type($epc);
+                $data['epc_type'] = $this->Rfid_table->check_Type($epc);
                 $data['epc_time'] = $curr_date;
                 if ('IS_AJAX') {
                     echo json_encode($data);
                 }
             }
+        }
+    }
+
+    public function TagUpdate()
+    {
+        $date = new DateTime("now");
+        $curr_date = $date->format('Y-m-d ');
+
+        foreach ($this->input->post('epc_data_send') as $value) {
+            $epc_data = array(
+                'epc_send' => $value,
+                'customer' => $this->input->post('epc_customer'),
+                'time' => $curr_date,
+                'status_change' => "IN_DELIVERY"
+            );
+
+            $this->Rfid_table->update_TagsScanned_out($epc_data);
+        }
+
+        $data['status'] = true;
+        if ('IS_AJAX') {
+            echo json_encode($data);
         }
     }
 }

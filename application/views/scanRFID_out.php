@@ -6,7 +6,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
-
 <body>
     <!-- Container Fluid-->
     <div class="container-fluid" id="container-wrapper">
@@ -17,19 +16,19 @@
                     <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
                     <a class="btn btn-primary" href="<?= base_url('PilihCustomer'); ?>" role="button">Pilih Customer Selanjutnya</a>
                     <div class="my-2">
+                        <button type="button" type="submit" id="btn_submit" class="btn btn-primary btn-lg btn-block ">Submit</button>
                     </div>
-                    <a class="btn btn-primary btn-lg btn-block " href="<?= base_url('PilihCustomer'); ?>" role="button">Submit</a>
                 </div>
             </ol>
         </div>
         <div class="row mb-3">
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card">
+                <div id="card_0" class="card" style="display:none;">
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
-                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                                <div id="card_header_0" class="text-xl font-weight-bold text-uppercase mb-1"> </div>
+                                <div id="card_total_0" class="h3 mb-0 font-weight-bold mr-2">0</div>
                             </div>
                             <div class="col-auto">
                                 <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
@@ -39,12 +38,12 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card">
+                <div id="card_1" class="card" style="display:none;">
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
-                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                                <div id="card_header_1" class="text-xl font-weight-bold text-uppercase mb-1"> </div>
+                                <div id="card_total_1" class="h3 mb-0 font-weight-bold mr-2">0</div>
                             </div>
                             <div class="col-auto">
                                 <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
@@ -54,12 +53,12 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card">
+                <div id="card_2" class="card" style="display:none;">
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
-                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                                <div id="card_header_2" class="text-xl font-weight-bold text-uppercase mb-1"> </div>
+                                <div id="card_total_2" class="h3 mb-0 font-weight-bold mr-2">0</div>
                             </div>
                             <div class="col-auto">
                                 <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
@@ -69,12 +68,12 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card">
+                <div id="card_3" class="card" style="display:none;">
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xl font-weight-bold text-uppercase mb-1"># of Tags Scanned</div>
-                                <div id="total_scanned" class="h3 mb-0 font-weight-bold mr-2">0</div>
+                                <div id="card_header_3" class="text-xl font-weight-bold text-uppercase mb-1"> </div>
+                                <div id="card_total_3" class="h3 mb-0 font-weight-bold mr-2">0</div>
                             </div>
                             <div class="col-auto">
                                 <img src="assets/img/house-door.svg" alt="Bootstrap" width="32" height="32">
@@ -84,7 +83,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="row">
             <!-- Datatables Master Data -->
@@ -130,6 +128,9 @@
         }
 
         var i = 0;
+        var type_i = 0;
+        const type_arr = [];
+        const epcs = [];
 
         // connect the client
         client.connect(options);
@@ -159,6 +160,7 @@
             console.log(message.payloadString);
             var mess = message.payloadString;
             var cust = "<?php echo $customer; ?>";
+            epcs[i] = mess;
             i++;
             $.ajax({
                 type: "POST",
@@ -177,9 +179,25 @@
                         var cell1 = row.insertCell(0);
                         var cell2 = row.insertCell(1);
                         var cell3 = row.insertCell(2);
-                        cell1.innerHTML = mess;
-                        cell2.innerHTML = data.epc_received;
+                        cell1.innerHTML = epcs[(i - 1)];
+                        cell2.innerHTML = data.epc_type;
                         cell3.innerHTML = data.epc_time;
+                        if (type_arr.length == 0) {
+                            type_arr[type_i] = data.epc_type;
+                            document.getElementById("card_0").style.display = "block";
+                            document.getElementById("card_header_0").innerHTML = data.epc_type;
+                            document.getElementById("card_total_0").innerHTML++;
+                            type_i++;
+                        } else if (type_arr.includes(data.epc_type)) {
+                            let index = type_arr.indexOf(data.epc_type);
+                            document.getElementById("card_total_".concat(index)).innerHTML++;
+                        } else {
+                            type_arr[type_i] = data.epc_type;
+                            document.getElementById("card_".concat(type_i)).style.display = "block";
+                            document.getElementById("card_header_".concat(type_i)).innerHTML = data.epc_type;
+                            document.getElementById("card_total_".concat(type_i)).innerHTML++;
+                            type_i++;
+                        }
                     }
                 },
                 error: function(request, exception) {
@@ -187,6 +205,30 @@
                 },
             });
         }
+
+        $('#btn_submit').on('click', function() {
+            var actionUrl = "<?php echo base_url() . 'ScanRFID_Out/TagUpdate'; ?>";
+            var cust = "<?php echo $customer; ?>";
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: actionUrl,
+                data: {
+                    epc_data_send: epcs,
+                    epc_customer: cust
+                },
+                success: function(data) {
+                    if (data.status == false) {
+                        alert("GAGAL");
+                    } else {
+                        console.log("BERHASIL");
+                    }
+                },
+                error: function(request, exception) {
+                    alert("GAGAL zzzzz");
+                },
+            });
+        });
     </script>
 </body>
 
