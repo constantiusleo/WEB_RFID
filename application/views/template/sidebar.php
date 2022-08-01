@@ -39,8 +39,8 @@
   </li>
   <li class="nav-item active">
     <a class="nav-link" href="<?= base_url('header'); ?>">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Header</span></a>
+    <img src="assets/img/storage.svg" alt="Bootstrap" width="16" height="16">
+      <span>History</span></a>
   </li>
   <hr class="sidebar-divider">
   <div class="version" id="version-ruangadmin"></div>
