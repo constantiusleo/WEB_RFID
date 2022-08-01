@@ -9,7 +9,7 @@ class ScanRFID_Out extends CI_Controller
         parent::__construct();
         $this->load->model('Rfid_table');
         $this->load->model('Crud');
-        $this->layout = 'template/container';
+        $this->layout = 'template/container_scan';
     }
 
     public function index()
