@@ -110,6 +110,22 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div aria-live="polite" aria-atomic="true">
+                <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+                    <div class="toast-header">
+                        <strong class="mr-auto">Just Now</strong>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+                        <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 
@@ -241,20 +257,7 @@
         });
     </script>
 
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-  <div class="toast bg-success" style="position: absolute; bottom: 0; right: 0;">
-    <div class="toast-header">
-      <strong class="mr-auto">Just Now</strong>
-      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="toast-body">
-    <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
-      Data Berhasil Dimasukkan
-    </div>
-  </div>
-</div>
+
 </body>
 
 </html>
