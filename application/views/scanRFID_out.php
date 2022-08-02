@@ -11,6 +11,11 @@
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="display-2 mb-0 text-gray-800"><?php echo $customer; ?></h1>
+            <div class="toast top-0 end-0">
+                <div class="toast-body">
+                    Success!!
+                </div>
+            </div>
             <ol class="breadcrumb">
                 <div class="text-right">
                     <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
@@ -228,6 +233,10 @@
                     type_i = 0;
                     type_arr.length = 0;
                     epcs.length = 0;
+                    $('.toast').toast({
+                        delay: 5000
+                    });
+                    $('.toast').toast('show');
                 },
                 error: function(request, exception) {
                     alert("GAGAL zzzzz");
