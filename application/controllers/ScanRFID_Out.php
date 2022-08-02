@@ -41,18 +41,18 @@ class ScanRFID_Out extends CI_Controller
     {
         $date = new DateTime("now");
         $curr_date = $date->format('Y-m-d ');
+        $cust_received = $this->input->post('epc_customer');
 
         foreach ($this->input->post('epc_data_send') as $value) {
             $epc_data = array(
                 'epc_send' => $value,
-                'customer' => $this->input->post('epc_customer'),
+                'customer' => $cust_received,
                 'time' => $curr_date,
                 'status_change' => "IN_DELIVERY"
             );
 
             $this->Rfid_table->update_TagsScanned_out($epc_data);
         }
-
         $data['status'] = true;
         if ('IS_AJAX') {
             echo json_encode($data);

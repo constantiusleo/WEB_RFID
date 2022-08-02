@@ -174,11 +174,11 @@
                     if (data.status == false) {
                         getMessageErrorScan(data.status);
                     } else {
-                        var table = document.getElementById("epc_table");
-                        var row = table.insertRow(-1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
+                        var table = document.getElementById("epc_table").getElementsByTagName('tbody')[0];
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
                         cell1.innerHTML = epcs[(i - 1)];
                         cell2.innerHTML = data.epc_type;
                         cell3.innerHTML = data.epc_time;
@@ -218,11 +218,16 @@
                     epc_customer: cust
                 },
                 success: function(data) {
-                    if (data.status == false) {
-                        alert("GAGAL");
-                    } else {
-                        console.log("BERHASIL");
+                    $("#epc_table tbody tr").remove();
+                    for (let index = 0; index <= type_i; index++) {
+                        document.getElementById("card_".concat(index)).style.display = "none";
+                        document.getElementById("card_header_".concat(index)).innerHTML = " ";
+                        document.getElementById("card_total_".concat(index)).innerHTML = 0;
                     }
+                    i = 0;
+                    type_i = 0;
+                    type_arr.length = 0;
+                    epcs.length = 0;
                 },
                 error: function(request, exception) {
                     alert("GAGAL zzzzz");
