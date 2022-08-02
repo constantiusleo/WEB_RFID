@@ -37,7 +37,7 @@ class InputNewType extends CI_Controller
         $this->Crud->del($id);
 
         if ($this->db->affected_rows() > 0) {
-            echo "<script>alert('Data berhasil dihapus');</script>";
+            echo "<script>alert( 'Type berhasil dihapus');</script>";
         }
         echo "<script>window.location='" . site_url('InputNewType') . "';</script>";
     }

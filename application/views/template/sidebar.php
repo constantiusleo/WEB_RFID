@@ -8,7 +8,7 @@
   <hr class="sidebar-divider my-0">
   <li class="nav-item active">
     <a class="nav-link" href="<?= base_url('#'); ?>">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+    <img src="assets/img/dashboard.svg" alt="Bootstrap" width="16" height="16">
       <span>Dashboard</span></a>
   </li>
   <li class="nav-item active">
@@ -26,7 +26,7 @@
   </li>
   <li class="nav-item active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
-      <i class="fas fa-fw fa-table"></i>
+    <img src="assets/img/input.svg" alt="Bootstrap" width="16" height="16">
       <span>Input</span>
     </a>
     <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
