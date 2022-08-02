@@ -11,15 +11,7 @@
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="display-2 mb-0 text-gray-800"><?php echo $customer; ?></h1>
-            <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header ">
-                    <strong class="me-auto">Just Now</strong>
-                </div>
-                <div class="toast-body">
-                    <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
-                    Data Berhasil Dimasukkan
-                </div>
-            </div>
+
             <ol class="breadcrumb">
                 <div class="text-right">
                     <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
@@ -248,6 +240,21 @@
             });
         });
     </script>
+
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+  <div class="toast bg-success" style="position: absolute; bottom: 0; right: 0;">
+    <div class="toast-header">
+      <strong class="mr-auto">Just Now</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+    <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+      Data Berhasil Dimasukkan
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
