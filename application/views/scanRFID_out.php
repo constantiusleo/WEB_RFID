@@ -11,9 +11,13 @@
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="display-2 mb-0 text-gray-800"><?php echo $customer; ?></h1>
-            <div class="toast top-0 end-0">
+            <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header ">
+                    <strong class="me-auto">Just Now</strong>
+                </div>
                 <div class="toast-body">
-                    Success!!
+                    <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+                    Data Berhasil Dimasukkan
                 </div>
             </div>
             <ol class="breadcrumb">
