@@ -103,4 +103,20 @@ class Rfid_table extends CI_Model
         $this->db->where('EPC', $epc_to_check);
         return $this->db->get()->row()->Type;
     }
+
+    public function check_Customer($epc_to_check)
+    {
+        $this->db->select('Customer');
+        $this->db->from($this->table);
+        $this->db->where('EPC', $epc_to_check);
+        return $this->db->get()->row()->Customer;
+    }
+
+    public function check_LastSeen($epc_to_check)
+    {
+        $this->db->select('Last_Seen');
+        $this->db->from($this->table);
+        $this->db->where('EPC', $epc_to_check);
+        return $this->db->get()->row()->Last_Seen;
+    }
 }

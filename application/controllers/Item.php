@@ -13,6 +13,7 @@ class Item extends CI_Controller
 
 	public function index()
 	{
+		$data['id_received'] = $this->input->post('id_send');
 		$data['data'] = $this->Rfid_table->get()->result();
 		$data['content'] = 'item';
 		$this->load->view($this->layout, $data);

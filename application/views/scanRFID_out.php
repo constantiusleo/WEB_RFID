@@ -88,45 +88,41 @@
         <div class="row">
             <!-- Datatables Master Data -->
             <div class="col">
-                <form action="<?php echo base_url() . 'ScanRFID_Out/TagScanned'; ?>" method="post">
-                    <div class="card mb-4">
-                        <input class="form-control" name="costumer_data" id="costumer_data" type="hidden" value=<?php echo $customer; ?>>
-                        <input class="form-control" name="number" id="number" type="hidden" value="0">
-                        <div class="table-responsive p-3">
-                            <table id="epc_table" class="table align-items-center table-flush">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th style="width:60%;">EPC</th>
-                                        <th style="width:20%;">Type</th>
-                                        <th style="width:20%;">Waktu</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                                <tfoot>
-                                </tfoot>
-                            </table>
-                        </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div aria-live="polite" aria-atomic="true">
-                <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
-                    <div class="toast-header">
-                        <strong class="mr-auto">Just Now</strong>
-                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <div class="card mb-4">
+                    <div class="table-responsive p-3">
+                        <table id="epc_table" class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th style="width:60%;">EPC</th>
+                                    <th style="width:20%;">Type</th>
+                                    <th style="width:20%;">Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
                     </div>
-                    <div class="toast-body">
-                        <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
-                        <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div aria-live="polite" aria-atomic="true">
+                    <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+                        <div class="toast-header">
+                            <strong class="mr-auto">Success</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+                            <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script type="text/javascript" language="javascript">
@@ -232,7 +228,8 @@
                 url: actionUrl,
                 data: {
                     epc_data_send: epcs,
-                    epc_customer: cust
+                    epc_customer: cust,
+                    epc_total: i
                 },
                 success: function(data) {
                     $("#epc_table tbody tr").remove();
@@ -246,12 +243,13 @@
                     type_arr.length = 0;
                     epcs.length = 0;
                     $('.toast').toast({
-                        delay: 5000
+                        delay: 2500
                     });
                     $('.toast').toast('show');
+
                 },
                 error: function(request, exception) {
-                    alert("GAGAL zzzzz");
+                    alert("Oh no! Something went wrong :(");
                 },
             });
         });

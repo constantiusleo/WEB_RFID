@@ -76,6 +76,22 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div aria-live="polite" aria-atomic="true">
+        <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+          <div class="toast-header">
+            <strong class="mr-auto">Success</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body">
+            <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+            <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   </div>
   <script type="text/javascript" language="javascript">
@@ -126,10 +142,10 @@
       epcs[i] = mess;
       i++;
       document.getElementById("total_scanned").innerHTML = i;
-      var table = document.getElementById("epc_table");
-      var row = table.insertRow(-1);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
+      var table = document.getElementById("epc_table").getElementsByTagName('tbody')[0];
+      var row = table.insertRow();
+      var cell1 = row.insertCell();
+      var cell2 = row.insertCell();
       cell1.innerHTML = i;
       cell2.innerHTML = mess;
     }
@@ -146,11 +162,14 @@
           type_send: type_new
         },
         success: function(data) {
-          if (data.status == false) {
-            alert("GAGAL");
-          } else {
-            alert("BERHASIL");
-          }
+          $("#epc_table tbody tr").remove();
+          document.getElementById("total_scanned").innerHTML = 0;
+          i = 0;
+          epcs = [];
+          $('.toast').toast({
+            delay: 2500
+          });
+          $('.toast').toast('show');
         },
         error: function(request, exception) {
           alert("GAGAL");
