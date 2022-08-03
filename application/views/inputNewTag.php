@@ -61,7 +61,7 @@
             <h6 class="m-0 font-weight-bold text-primary ">RFID READER</h6>
           </div>
           <form>
-            <div class="card-body" bis_skin_checked="1">
+          <div class="card-body" bis_skin_checked="1">
               <select id='select_type' class="form-control">
                 <?php foreach ($data as $value) { ?>
                   <option value="<?php echo $value->Type; ?>"><?php echo $value->Type; ?></option>
@@ -70,33 +70,33 @@
               <div class="align-self-end" bis_skin_checked="1">
               </div>
               <div class="my-2 text-right">
-                <button type="button" type="submit" id="btn_submit" class="btn btn-primary text-right">Submit</button>
+                <button onclick="window.location.href='//localhost/WEB_RFID/InputNewTag';" type="button" type="submit" id="btn_submit" class="btn btn-primary text-right">Submit</button>
               </div>
           </form>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div aria-live="polite" aria-atomic="true">
-        <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
-          <div class="toast-header">
-            <strong class="mr-auto">Success</strong>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="toast-body">
-            <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
-            <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
-          </div>
+  <div class="row">
+    <div aria-live="polite" aria-atomic="true">
+      <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+        <div class="toast-header">
+          <strong class="mr-auto">Success</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+          <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
         </div>
       </div>
     </div>
   </div>
   </div>
+                </div>
   <script type="text/javascript" language="javascript">
     // Create a client instance
-    client = new Paho.MQTT.Client("192.168.1.88", 9001, "web_" + parseInt(Math.random() * 100, 10));
+    client = new Paho.MQTT.Client("172.16.6.21", 9001, "web_" + parseInt(Math.random() * 100, 10));
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
@@ -166,9 +166,7 @@
           document.getElementById("total_scanned").innerHTML = 0;
           i = 0;
           epcs = [];
-          $('.toast').toast({
-            delay: 2500
-          });
+
           $('.toast').toast('show');
         },
         error: function(request, exception) {
