@@ -110,7 +110,7 @@
 
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("192.168.1.88", 9001, "web_" + parseInt(Math.random() * 100, 10));
+        client = new Paho.MQTT.Client("172.16.21.27", 9001, "web_" + parseInt(Math.random() * 100, 10));
         // set callback handlers
         client.onConnectionLost = onConnectionLost;
         client.onMessageArrived = onMessageArrived;
