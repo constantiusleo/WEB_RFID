@@ -10,7 +10,7 @@
     <!-- Container Fluid-->
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 id="last_customer" class="display-2 mb-0 text-gray-800">BOX MASUK</h1>
+            <h1 id="last_customer" class="display-2 mb-0 text-gray-800">BOX IN</h1>
             <ol class="breadcrumb">
                 <div class="text-right">
                     <a class="btn btn-primary btn-lg btn-block " href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
