@@ -25,11 +25,13 @@ class ScanRFID_Out extends CI_Controller
         if (isset($_POST['epc_send'])) {
             if (!empty($_POST['epc_send'])) {
                 $epc = $this->input->post('epc_send');
-                $date = new DateTime("now");
+                $date = new DateTime("now", new DateTimeZone("Asia/Jakarta"));
                 $curr_date = $date->format('Y-m-d');
 
                 $data['status'] = true;
                 $data['epc_type'] = $this->Rfid_table->check_Type($epc);
+                $data['epc_customer'] = $this->Rfid_table->check_Customer($epc);
+                $data['epc_status'] = $this->Rfid_table->check_Status($epc);
                 $data['epc_time'] = $curr_date;
                 if ('IS_AJAX') {
                     echo json_encode($data);
@@ -40,7 +42,7 @@ class ScanRFID_Out extends CI_Controller
 
     public function TagUpdate()
     {
-        $date = new DateTime("now");
+        $date = new DateTime("now", new DateTimeZone("Asia/Jakarta"));
         $curr_date = $date->format('Y-m-d');
         $header_date = $date->format('Ymd');
         $cust_received = $this->input->post('epc_customer');
@@ -50,6 +52,7 @@ class ScanRFID_Out extends CI_Controller
         $data_header = array(
             'id' => $id_header,
             'Customer' => $cust_received,
+            'Transaksi' => "Keluar AISIN",
             'total_tag' => $total_received
         );
 
@@ -69,11 +72,12 @@ class ScanRFID_Out extends CI_Controller
                 'EPC' => $value,
                 'Type' => $this->Rfid_table->check_Type($value),
                 'Customer' => $cust_received,
-                'Waktu_Masuk' => "-"
+                'Transaksi' => "Keluar AISIN"
             );
 
             $this->Crud->input_data($data_item, 'item_table');
         }
+
         $data['status'] = true;
         if ('IS_AJAX') {
             echo json_encode($data);
