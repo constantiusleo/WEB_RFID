@@ -14,8 +14,8 @@
 
             <ol class="breadcrumb">
                 <div class="text-right">
-                    <a class="btn btn-secondary" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
-                    <a class="btn btn-primary" href="<?= base_url('PilihCustomer'); ?>" role="button">Pilih Customer Selanjutnya</a>
+                    <a class="btn btn-secondary btn-lg" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
+                    <a class="btn btn-warning btn-lg" href="<?= base_url('PilihCustomer'); ?>" role="button">Pilih Customer Selanjutnya</a>
                     <div class="my-2">
                         <button type="button" type="submit" id="btn_submit" class="btn btn-primary btn-lg btn-block ">Submit</button>
                     </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="row">
                 <div aria-live="polite" aria-atomic="true">
-                    <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+                    <div id="toast_success" class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
                         <div class="toast-header">
                             <strong class="mr-auto">Success</strong>
                             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -120,6 +120,17 @@
                             <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
                         </div>
                     </div>
+                    <div id="toast_warning" class="toast text-white bg-warning" style="position: absolute; bottom: 0; right: 0;">
+                        <div class="toast-header">
+                            <strong class="mr-auto">WARNING</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            <strong class="mr-auto">Tag memiliki status IN_DELIVERY, pastikan seluruh tag telah melalui gate yang sesuai!</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,8 +138,8 @@
 
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("192.168.43.18", 9001, "web_" + parseInt(Math.random() * 100, 10));
-        // set callback handlers
+        client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
+       // set callback handlers
         client.onConnectionLost = onConnectionLost;
         client.onMessageArrived = onMessageArrived;
 
@@ -144,6 +155,7 @@
         var type_i = 0;
         const type_arr = [];
         const epcs = [];
+        var isDirty = false;
 
         // connect the client
         client.connect(options);
@@ -174,6 +186,7 @@
             var mess = message.payloadString;
             var cust = "<?php echo $customer; ?>";
             epcs[i] = mess;
+            isDirty = true;
             i++;
             $.ajax({
                 type: "POST",
@@ -187,6 +200,12 @@
                     if (data.status == false) {
                         getMessageErrorScan(data.status);
                     } else {
+                        if (data.epc_status == "IN_DELIVERY") {
+                            $("#toast_warning").toast({
+                                delay: 7500
+                            });
+                            $("#toast_warning").toast('show');
+                        }
                         var table = document.getElementById("epc_table").getElementsByTagName('tbody')[0];
                         var row = table.insertRow();
                         var cell1 = row.insertCell();
@@ -222,6 +241,7 @@
         $('#btn_submit').on('click', function() {
             var actionUrl = "<?php echo base_url() . 'ScanRFID_Out/TagUpdate'; ?>";
             var cust = "<?php echo $customer; ?>";
+            isDirty = false;
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -242,10 +262,10 @@
                     type_i = 0;
                     type_arr.length = 0;
                     epcs.length = 0;
-                    $('.toast').toast({
+                    $("#toast_success").toast({
                         delay: 2500
                     });
-                    $('.toast').toast('show');
+                    $("#toast_success").toast('show');
 
                 },
                 error: function(request, exception) {
@@ -253,6 +273,19 @@
                 },
             });
         });
+        window.onload = function() {
+            window.addEventListener("beforeunload", function(e) {
+                if (!isDirty) {
+                    return undefined;
+                }
+
+                var confirmationMessage = 'It looks like you have been editing something. ' +
+                    'If you leave before saving, your changes will be lost.';
+
+                (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+                return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+            });
+        };
     </script>
 
 

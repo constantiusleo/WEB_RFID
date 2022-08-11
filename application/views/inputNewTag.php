@@ -70,7 +70,7 @@
               <div class="align-self-end" bis_skin_checked="1">
               </div>
               <div class="my-2 text-right">
-                <button onclick="window.location.href='//localhost/WEB_RFID/InputNewTag';" type="button" type="submit" id="btn_submit" class="btn btn-primary text-right">Submit</button>
+                <button type="button" type="submit" id="btn_submit" class="btn btn-primary text-right">Submit</button>
               </div>
           </form>
         </div>
@@ -96,7 +96,8 @@
   </div>
   <script type="text/javascript" language="javascript">
     // Create a client instance
-    client = new Paho.MQTT.Client("192.168.43.18", 9001, "web_" + parseInt(Math.random() * 100, 10));
+    client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
+
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
@@ -166,7 +167,9 @@
           document.getElementById("total_scanned").innerHTML = 0;
           i = 0;
           epcs = [];
-
+          $('.toast').toast({
+            delay: 2500
+          });
           $('.toast').toast('show');
         },
         error: function(request, exception) {

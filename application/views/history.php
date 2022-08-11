@@ -28,6 +28,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Customer</th>
+                  <th>Transaksi</th>
                   <th>Waktu</th>
                   <th>Total</th>
                   <th>Log</th>
@@ -38,6 +39,7 @@
                   <tr>
                     <td><?php echo $value->id; ?></td>
                     <td><?php echo $value->Customer; ?></td>
+                    <td><?php echo $value->Transaksi; ?></td>
                     <td><?php echo $value->timestamp; ?></td>
                     <td><?php echo $value->total_tag; ?></td>
                     <td>
@@ -56,8 +58,7 @@
                   <th>EPC</th>
                   <th>Type</th>
                   <th>Customer</th>
-                  <th>Waktu_Keluar</th>
-                  <th>Waktu_Masuk</th>
+                  <th>Waktu</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,13 +91,11 @@
             var cell3 = row.insertCell();
             var cell4 = row.insertCell();
             var cell5 = row.insertCell();
-            var cell6 = row.insertCell();
             cell1.innerHTML = element.id;
             cell2.innerHTML = element.EPC;
             cell3.innerHTML = element.Type;
             cell4.innerHTML = element.Customer;
-            cell5.innerHTML = element.Waktu_Keluar;
-            cell6.innerHTML = element.Waktu_Masuk;
+            cell5.innerHTML = element.Waktu;
           });
         },
         error: function(request, exception) {

@@ -10,10 +10,15 @@
     <!-- Container Fluid-->
     <div class="container-fluid" id="container-wrapper">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 id="last_customer" class="display-2 mb-0 text-gray-800">BOX MASUK</h1>
+            <h1 class="display-2 mb-0 text-gray-800">BOX MASUK (<?php echo $curr_date; ?>)</h1>
+
             <ol class="breadcrumb">
                 <div class="text-right">
-                    <a class="btn btn-primary btn-lg btn-block " href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
+                    <a class="btn btn-secondary btn-lg" href="<?= base_url('#'); ?>" role="button">Kembali ke Dashboard</a>
+                    <a class="btn btn-warning btn-lg" href="<?= base_url('ScanRFID_In'); ?>" role="button">RESET</a>
+                    <div class="my-2">
+                        <button type="button" type="submit" id="btn_submit" class="btn btn-primary btn-lg btn-block ">Submit</button>
+                    </div>
                 </div>
             </ol>
         </div>
@@ -83,34 +88,48 @@
         <div class="row">
             <!-- Datatables Master Data -->
             <div class="col">
-                <form action="<?php echo base_url() . 'ScanRFID_Out/TagScanned'; ?>" method="post">
-                    <div class="card mb-4">
-                        <div class="table-responsive p-3">
-                            <table id="epc_table" class="table align-items-center table-flush">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th style="width:40%;">EPC</th>
-                                        <th style="width:30%;">Customer</th>
-                                        <th style="width:15%;">Type</th>
-                                        <th style="width:15%;">Waktu</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                                <tfoot>
-                                </tfoot>
-                            </table>
+                <div class="card mb-4">
+                    <div class="table-responsive p-3">
+                        <table id="epc_table" class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th style="width:40%;">EPC</th>
+                                    <th style="width:20%;">Type</th>
+                                    <th style="width:20%;">Customer</th>
+                                    <th style="width:20%;">Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div aria-live="polite" aria-atomic="true">
+                    <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+                        <div class="toast-header">
+                            <strong class="mr-auto">Success</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            <img src="assets/img/check-circle.svg" alt="Bootstrap" width="32" height="32">
+                            <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 
-
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("192.168.43.18", 9001, "web_" + parseInt(Math.random() * 100, 10));
+        client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
+
         // set callback handlers
         client.onConnectionLost = onConnectionLost;
         client.onMessageArrived = onMessageArrived;
@@ -136,7 +155,7 @@
             // Once a connection has been made, make a subscription and send a message.
             console.log("onConnect");
 
-            client.subscribe("rfid_tags_epc_in");
+            client.subscribe("rfid_tags_epc_out");
 
         }
 
@@ -168,6 +187,12 @@
                     if (data.status == false) {
                         getMessageErrorScan(data.status);
                     } else {
+                        if (data.epc_status == "AVAILABLE") {
+                            $("#toast_warning").toast({
+                                delay: 7500
+                            });
+                            $("#toast_warning").toast('show');
+                        }
                         var table = document.getElementById("epc_table").getElementsByTagName('tbody')[0];
                         var row = table.insertRow();
                         var cell1 = row.insertCell();
@@ -175,10 +200,9 @@
                         var cell3 = row.insertCell();
                         var cell4 = row.insertCell();
                         cell1.innerHTML = epcs[(i - 1)];
-                        cell2.innerHTML = data.epc_customer;
-                        cell3.innerHTML = data.epc_type;
+                        cell2.innerHTML = data.epc_type;
+                        cell3.innerHTML = data.epc_customer;
                         cell4.innerHTML = data.epc_time;
-                        document.getElementById("last_customer").innerHTML = data.epc_customer;
                         if (type_arr.length == 0) {
                             type_arr[type_i] = data.epc_type;
                             document.getElementById("card_0").style.display = "block";
@@ -202,7 +226,42 @@
                 },
             });
         }
+
+        $('#btn_submit').on('click', function() {
+            var actionUrl = "<?php echo base_url() . 'ScanRFID_In/TagUpdate'; ?>";
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: actionUrl,
+                data: {
+                    epc_data_send: epcs,
+                    epc_total: i
+                },
+                success: function(data) {
+                    $("#epc_table tbody tr").remove();
+                    for (let index = 0; index <= type_i; index++) {
+                        document.getElementById("card_".concat(index)).style.display = "none";
+                        document.getElementById("card_header_".concat(index)).innerHTML = " ";
+                        document.getElementById("card_total_".concat(index)).innerHTML = 0;
+                    }
+                    i = 0;
+                    type_i = 0;
+                    type_arr.length = 0;
+                    epcs.length = 0;
+                    $('.toast').toast({
+                        delay: 2500
+                    });
+                    $('.toast').toast('show');
+
+                },
+                error: function(request, exception) {
+                    alert("Oh no! Something went wrong :(");
+                },
+            });
+        });
     </script>
+
+
 </body>
 
 </html>
