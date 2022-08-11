@@ -43,6 +43,7 @@ class ScanRFID_Out extends CI_Controller
     public function TagUpdate()
     {
         $date = new DateTime("now", new DateTimeZone("Asia/Jakarta"));
+
         $curr_date = $date->format('Y-m-d');
         $header_date = $date->format('Ymd');
         $cust_received = $this->input->post('epc_customer');
