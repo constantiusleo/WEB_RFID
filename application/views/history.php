@@ -16,6 +16,34 @@
         <li class="breadcrumb-item active" aria-current="page">History</li>
       </ol>
     </div>
+    <form>
+      <div class="row form-group">
+        <label for="date" class="col-sm-1 col-form-label">Date Start</label>
+        <div class="col-sm-4">
+          <div class="input-group date" id="datepicker2">
+            <input type="text" class="form-control2">
+            <span class="input-group-append">
+              <span class="input-group-text bg-white">
+                <img src="assets/img/calendar.svg" alt="Bootstrap" width="16" height="16">
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row form-group">
+        <label for="date" class="col-sm-1 col-form-label">Date End</label>
+        <div class="col-sm-4">
+          <div class="input-group date" id="datepickerr">
+            <input type="text" class="form-controlr">
+            <span class="input-group-append">
+              <span class="input-group-text bg-white">
+                <img src="assets/img/calendar.svg" alt="Bootstrap" width="16" height="16">
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
     <div class="row">
       <!-- Datatables Master Data -->
       <div class="col">
@@ -70,6 +98,10 @@
     </div>
   </div>
   <script type="text/javascript" language="javascript">
+    $(function() {
+      $('#datepickerr').datepicker();
+      $('#datepicker2').datepicker();
+    });
     $('button').on('click', function() {
       var button = $(this);
       var actionUrl = "<?php echo base_url() . 'History/choose_ID'; ?>";
