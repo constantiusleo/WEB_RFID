@@ -138,8 +138,8 @@
 
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
-       // set callback handlers
+        client = new Paho.MQTT.Client("172.16.21.68", 9001, "web_" + parseInt(Math.random() * 100, 10));
+        // set callback handlers
         client.onConnectionLost = onConnectionLost;
         client.onMessageArrived = onMessageArrived;
 
@@ -211,7 +211,7 @@
                         var cell1 = row.insertCell();
                         var cell2 = row.insertCell();
                         var cell3 = row.insertCell();
-                        cell1.innerHTML = epcs[(i - 1)];
+                        cell1.innerHTML = mess;
                         cell2.innerHTML = data.epc_type;
                         cell3.innerHTML = data.epc_time;
                         if (type_arr.length == 0) {

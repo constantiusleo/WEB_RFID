@@ -96,7 +96,7 @@
   </div>
   <script type="text/javascript" language="javascript">
     // Create a client instance
-    client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
+    client = new Paho.MQTT.Client("172.16.21.68", 9001, "web_" + parseInt(Math.random() * 100, 10));
 
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
@@ -166,7 +166,7 @@
           $("#epc_table tbody tr").remove();
           document.getElementById("total_scanned").innerHTML = 0;
           i = 0;
-          epcs = [];
+          epcs.length = 0;
           $('.toast').toast({
             delay: 2500
           });
