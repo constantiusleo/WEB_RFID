@@ -110,7 +110,9 @@
     $(function() {
       $('#datepickerr').datepicker();
       $('#datepicker2').datepicker();
-      $('table.display').DataTable();
+      $('table.display').DataTable({
+        "paging": false
+      });
       var table = $('#item_table_id').DataTable();
 
       $('.btn-detail-class').on('click', function() {
