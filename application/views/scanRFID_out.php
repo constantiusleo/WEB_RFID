@@ -128,7 +128,7 @@
                             </button>
                         </div>
                         <div class="toast-body">
-                            <strong class="mr-auto">Tag memiliki status IN_DELIVERY, pastikan seluruh tag telah melalui gate yang sesuai!</strong>
+                            <strong id="warning_text_id" class="mr-auto"></strong>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
 
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("172.16.21.68", 9001, "web_" + parseInt(Math.random() * 100, 10));
+        client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
         // set callback handlers
         client.onConnectionLost = onConnectionLost;
         client.onMessageArrived = onMessageArrived;
@@ -185,9 +185,6 @@
             console.log(message.payloadString);
             var mess = message.payloadString;
             var cust = "<?php echo $customer; ?>";
-            epcs[i] = mess;
-            isDirty = true;
-            i++;
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -197,13 +194,16 @@
                     epc_customer: cust
                 },
                 success: function(data) {
-                    if (data.status == false) {
-                        getMessageErrorScan(data.status);
-                    } else {
+                    if (data.status && !(epcs.includes(mess))) {
+                        epcs[i] = mess;
+                        isDirty = true;
+                        i++;
                         if (data.epc_status == "IN_DELIVERY") {
                             $("#toast_warning").toast({
                                 delay: 7500
                             });
+                            document.getElementById("warning_text_id").innerHTML =
+                                "Tag memiliki status IN_DELIVERY, pastikan seluruh tag telah melalui gate yang sesuai!";
                             $("#toast_warning").toast('show');
                         }
                         var table = document.getElementById("epc_table").getElementsByTagName('tbody')[0];
@@ -230,6 +230,21 @@
                             document.getElementById("card_total_".concat(type_i)).innerHTML++;
                             type_i++;
                         }
+                    } else if (epcs.includes(mess)) {
+                        $("#toast_warning").toast({
+                            delay: 7500
+                        });
+                        document.getElementById("warning_text_id").innerHTML =
+                            "Recurring Tag has been scanned: ".concat(mess);
+                        $("#toast_warning").toast('show');
+
+                    } else {
+                        $("#toast_warning").toast({
+                            delay: 7500
+                        });
+                        document.getElementById("warning_text_id").innerHTML =
+                            "Unidentified Tag has been scanned: ".concat(mess);
+                        $("#toast_warning").toast('show');
                     }
                 },
                 error: function(request, exception) {
@@ -266,7 +281,6 @@
                         delay: 2500
                     });
                     $("#toast_success").toast('show');
-
                 },
                 error: function(request, exception) {
                     alert("Oh no! Something went wrong :(");
@@ -287,8 +301,6 @@
             });
         };
     </script>
-
-
 </body>
 
 </html>

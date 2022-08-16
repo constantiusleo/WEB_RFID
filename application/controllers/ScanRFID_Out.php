@@ -23,8 +23,8 @@ class ScanRFID_Out extends CI_Controller
     public function TagScanned()
     {
         if (isset($_POST['epc_send'])) {
-            if (!empty($_POST['epc_send'])) {
-                $epc = $this->input->post('epc_send');
+            $epc = $this->input->post('epc_send');
+            if ($this->Rfid_table->check_Exist($epc)) {
                 $date = new DateTime("now", new DateTimeZone("Asia/Jakarta"));
                 $curr_date = $date->format('Y-m-d');
 
@@ -33,17 +33,20 @@ class ScanRFID_Out extends CI_Controller
                 $data['epc_customer'] = $this->Rfid_table->check_Customer($epc);
                 $data['epc_status'] = $this->Rfid_table->check_Status($epc);
                 $data['epc_time'] = $curr_date;
-                if ('IS_AJAX') {
-                    echo json_encode($data);
-                }
+            } else {
+                $data['status'] = false;
+            }
+            if ('IS_AJAX') {
+                echo json_encode($data);
             }
         }
     }
 
     public function TagUpdate()
     {
-        $date = new DateTime("now", new DateTimeZone("Asia/Jakarta"));
+        if (empty($_POST['epc_data_send'])) return;
 
+        $date = new DateTime("now", new DateTimeZone("Asia/Jakarta"));
         $curr_date = $date->format('Y-m-d');
         $header_date = $date->format('Ymd');
         $cust_received = $this->input->post('epc_customer');

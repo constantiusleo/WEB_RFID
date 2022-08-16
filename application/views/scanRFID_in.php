@@ -109,7 +109,7 @@
             </div>
             <div class="row">
                 <div aria-live="polite" aria-atomic="true">
-                    <div class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
+                    <div id="toast_success" class="toast text-white bg-success" style="position: absolute; bottom: 0; right: 0;">
                         <div class="toast-header">
                             <strong class="mr-auto">Success</strong>
                             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -121,6 +121,17 @@
                             <strong class="mr-auto">Data Berhasil Dimasukkan</strong>
                         </div>
                     </div>
+                    <div id="toast_warning" class="toast text-white bg-warning" style="position: absolute; bottom: 0; right: 0;">
+                        <div class="toast-header">
+                            <strong class="mr-auto">WARNING</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            <strong id="warning_text_id" class="mr-auto"></strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,7 +139,7 @@
 
     <script type="text/javascript" language="javascript">
         // Create a client instance
-        client = new Paho.MQTT.Client("172.16.21.68", 9001, "web_" + parseInt(Math.random() * 100, 10));
+        client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
 
         // set callback handlers
         client.onConnectionLost = onConnectionLost;
@@ -146,6 +157,7 @@
         var type_i = 0;
         const type_arr = [];
         const epcs = [];
+        var isDirty = false;
 
         // connect the client
         client.connect(options);
@@ -174,8 +186,6 @@
         function onMessageArrived(message) {
             console.log(message.payloadString);
             var mess = message.payloadString;
-            epcs[i] = mess;
-            i++;
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -184,13 +194,16 @@
                     epc_send: mess
                 },
                 success: function(data) {
-                    if (data.status == false) {
-                        getMessageErrorScan(data.status);
-                    } else {
+                    if (data.status && !(epcs.includes(mess))) {
+                        epcs[i] = mess;
+                        i++;
+                        isDirty = true;
                         if (data.epc_status == "AVAILABLE") {
                             $("#toast_warning").toast({
                                 delay: 7500
                             });
+                            document.getElementById("warning_text_id").innerHTML =
+                                "Tag memiliki status IN_DELIVERY, pastikan seluruh tag telah melalui gate yang sesuai!";
                             $("#toast_warning").toast('show');
                         }
                         var table = document.getElementById("epc_table").getElementsByTagName('tbody')[0];
@@ -219,6 +232,21 @@
                             document.getElementById("card_total_".concat(type_i)).innerHTML++;
                             type_i++;
                         }
+                    } else if (epcs.includes(mess)) {
+                        $("#toast_warning").toast({
+                            delay: 7500
+                        });
+                        document.getElementById("warning_text_id").innerHTML =
+                            "Recurring Tag has been scanned: ".concat(mess);
+                        $("#toast_warning").toast('show');
+
+                    } else {
+                        $("#toast_warning").toast({
+                            delay: 7500
+                        });
+                        document.getElementById("warning_text_id").innerHTML =
+                            "Unidentified Tag has been scanned: ".concat(mess);
+                        $("#toast_warning").toast('show');
                     }
                 },
                 error: function(request, exception) {
@@ -238,6 +266,7 @@
                     epc_total: i
                 },
                 success: function(data) {
+                    isDirty = false;
                     $("#epc_table tbody tr").remove();
                     for (let index = 0; index <= type_i; index++) {
                         document.getElementById("card_".concat(index)).style.display = "none";
@@ -248,17 +277,29 @@
                     type_i = 0;
                     type_arr.length = 0;
                     epcs.length = 0;
-                    $('.toast').toast({
+                    $("#toast_success").toast({
                         delay: 2500
                     });
-                    $('.toast').toast('show');
-
+                    $("#toast_success").toast('show');
                 },
                 error: function(request, exception) {
                     alert("Oh no! Something went wrong :(");
                 },
             });
         });
+        window.onload = function() {
+            window.addEventListener("beforeunload", function(e) {
+                if (!isDirty) {
+                    return undefined;
+                }
+
+                var confirmationMessage = 'It looks like you have been editing something. ' +
+                    'If you leave before saving, your changes will be lost.';
+
+                (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+                return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+            });
+        };
     </script>
 
 

@@ -127,4 +127,16 @@ class Rfid_table extends CI_Model
         $this->db->where('EPC', $epc_to_check);
         return $this->db->get()->row()->Last_Seen;
     }
+
+    public function check_Exist($epc_to_check)
+    {
+        $this->db->where('EPC', $epc_to_check);
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
