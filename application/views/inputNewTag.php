@@ -94,7 +94,7 @@
   </div>
   <script type="text/javascript" language="javascript">
     // Create a client instance
-    client = new Paho.MQTT.Client("192.168.1.86", 9001, "web_" + parseInt(Math.random() * 100, 10));
+    client = new Paho.MQTT.Client("192.168.0.234", 9001, "web_rfid_" + parseInt(Math.random() * 100, 10));
 
     // set callback handlers
     client.onConnectionLost = onConnectionLost;
@@ -102,8 +102,6 @@
 
     //############# ATTENTION: Enter Your MQTT user and password details ########  
     var options = {
-      userName: "AdminMQTT",
-      password: "pwd123",
       onSuccess: onConnect,
       onFailure: doFail
     }
