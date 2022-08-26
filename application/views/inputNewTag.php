@@ -136,6 +136,7 @@
     function onMessageArrived(message) {
       console.log(message.payloadString);
       var mess = message.payloadString;
+      if (epcs.includes(mess)) return;
       epcs[i] = mess;
       i++;
       document.getElementById("total_scanned").innerHTML = i;
