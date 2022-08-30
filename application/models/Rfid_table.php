@@ -24,37 +24,37 @@ class Rfid_table extends CI_Model
 
     public function count_available()
     {
-        $this->db->like('Status', 'AVAILABLE');
+        $this->db->where('Status', 'AVAILABLE');
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     public function count_in_delivery()
     {
-        $this->db->like('Status', 'IN_DELIVERY');
+        $this->db->where('Status', 'IN_DELIVERY');
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     public function count_type($data_type)
     {
-        $this->db->like('Type', $data_type);
+        $this->db->where('Type', $data_type);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     public function count_type_available($data_type)
     {
-        $this->db->like('Type', $data_type);
-        $this->db->like('Status', 'AVAILABLE');
+        $this->db->where('Type', $data_type);
+        $this->db->where('Status', 'AVAILABLE');
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     public function count_type_in_delivery($data_type)
     {
-        $this->db->like('Type', $data_type);
-        $this->db->like('Status', 'IN_DELIVERY');
+        $this->db->where('Type', $data_type);
+        $this->db->where('Status', 'IN_DELIVERY');
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
