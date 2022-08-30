@@ -140,6 +140,7 @@
     <script type="text/javascript" language="javascript">
         // Create a client instance
         client = new Paho.MQTT.Client("192.168.0.234", 9001, "web_rfid_" + parseInt(Math.random() * 100, 10));
+        //ganti IP dengan milik Aisin atau IP untuk testing serta ganti protocol yang sesuai websocket atau tcp/ip
 
         // set callback handlers
         client.onConnectionLost = onConnectionLost;
@@ -165,7 +166,7 @@
             // Once a connection has been made, make a subscription and send a message.
             console.log("onConnect");
 
-            client.subscribe("rfid_tags_epc_out");
+            client.subscribe("rfid_tags_epc_out"); //ganti dengan topik yang sesuai
 
         }
 
